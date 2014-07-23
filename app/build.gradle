@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile 'com.tundem.aboutlibraries:library:2.1.1@aar'
+    compile 'com.tundem.aboutlibraries:library:2.1.2@aar'
     compile project(':library')
 }
