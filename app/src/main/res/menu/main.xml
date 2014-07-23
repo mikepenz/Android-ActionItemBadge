@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/item_samplebadge"
+        android:actionLayout="@layout/menu_badge"
+        android:showAsAction="always"
+        android:title="@string/sample_1"/>
+
+    <item android:id="@+id/action_opensource"
+          android:title="@string/action_opensource"
+          android:orderInCategory="100"
+          android:showAsAction="never"/>
+</menu>

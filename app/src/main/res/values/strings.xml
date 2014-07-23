@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ActionItemBadge</string>
+    <string name="action_opensource">Open Source</string>
+
+    <string name="sample_1">Sample 1</string>
+    <string name="sample_2">Sample 2</string>
+    <string name="sample_3">Sample 3</string>
+    <string name="sample_4">Sample 4</string>
+    <string name="sample_5">Sample 5</string>
+</resources>

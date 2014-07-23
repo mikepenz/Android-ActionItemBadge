@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed State -->
+    <item
+        android:state_focused="false"
+        android:state_selected="false"
+        android:state_pressed="true"
+        >
+        <shape>
+            <corners
+                android:radius="5dp"/>
+            <solid
+                android:color="@color/holo_purple"/>
+            <padding
+                android:left="5dp"
+                android:right="5dp"/>
+        </shape>
+    </item>
+    <!-- Unpressed State -->
+    <item
+        android:state_focused="false"
+        android:state_selected="false"
+        android:state_pressed="false"
+        >
+        <shape>
+            <corners
+                android:radius="5dp"/>
+            <solid
+                android:color="@color/holo_purple2"/>
+            <padding
+                android:left="5dp"
+                android:right="5dp"/>
+        </shape>
+    </item>
+</selector>

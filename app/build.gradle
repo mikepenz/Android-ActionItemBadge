@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
+
+    defaultConfig {
+        applicationId "com.tundem.actionitembadge.sample"
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    enforceUniquePackageName false
+}
+
+dependencies {
+    compile 'com.tundem.aboutlibraries:library:2.1.1@aar'
+    compile project(':library')
+}
