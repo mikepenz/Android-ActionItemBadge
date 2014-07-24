@@ -19,12 +19,14 @@ import com.joanzapata.android.iconify.Iconify;
 public class ActionItemBadge {
     public enum BadgeStyle {
         GREY(Style.DEFAULT, R.drawable.menu_grey_badge, R.layout.menu_badge),
+        DARKGREY(Style.DEFAULT, R.drawable.menu_darkgrey_badge, R.layout.menu_badge),
         RED(Style.DEFAULT, R.drawable.menu_red_badge, R.layout.menu_badge),
         BLUE(Style.DEFAULT, R.drawable.menu_blue_badge, R.layout.menu_badge),
         GREEN(Style.DEFAULT, R.drawable.menu_green_badge, R.layout.menu_badge),
         PURPLE(Style.DEFAULT, R.drawable.menu_purple_badge, R.layout.menu_badge),
         YELLOW(Style.DEFAULT, R.drawable.menu_yellow_badge, R.layout.menu_badge),
         GREY_LARGE(Style.LARGE, R.drawable.menu_grey_badge_large, R.layout.menu_badge_large),
+        DARKGREY_LARGE(Style.LARGE, R.drawable.menu_darkgrey_badge_large, R.layout.menu_badge_large),
         RED_LARGE(Style.LARGE, R.drawable.menu_red_badge_large, R.layout.menu_badge_large),
         BLUE_LARGE(Style.LARGE, R.drawable.menu_blue_badge_large, R.layout.menu_badge_large),
         GREEN_LARGE(Style.LARGE, R.drawable.menu_green_badge_large, R.layout.menu_badge_large),
@@ -206,7 +208,7 @@ public class ActionItemBadge {
     }
 
     public static void hide(MenuItem menu) {
-        menu.setVisible(true);
+        menu.setVisible(false);
     }
 
     @SuppressLint("NewApi")

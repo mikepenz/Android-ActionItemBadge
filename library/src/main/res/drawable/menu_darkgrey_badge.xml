@@ -10,7 +10,7 @@
             <corners
                 android:radius="5dp"/>
             <solid
-                android:color="@color/light_grey"/>
+                android:color="@color/dark_medium_grey"/>
             <padding
                 android:left="5dp"
                 android:right="5dp"/>
@@ -26,7 +26,7 @@
             <corners
                 android:radius="5dp"/>
             <solid
-                android:color="@color/light_medium_grey"/>
+                android:color="@color/dark_grey"/>
             <padding
                 android:left="5dp"
                 android:right="5dp"/>

@@ -17,6 +17,9 @@
     <color name="holo_yellow">#FFBB33</color>
     <color name="holo_orange">#FF8800</color>
 
-    <color name="medium_grey">#e0e0e0</color>
-    <color name="dark_grey">#c7c7c7</color>
+    <color name="light_grey">#e0e0e0</color>
+    <color name="light_medium_grey">#c7c7c7</color>
+
+    <color name="dark_medium_grey">#606060</color>
+    <color name="dark_grey">#3e3e3e</color>
 </resources>
