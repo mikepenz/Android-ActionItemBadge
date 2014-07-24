@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
 
         if (badgeCount > 0) {
-            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), Iconify.IconValue.fa_android, ActionItemBadge.BadgeStyle.RED, badgeCount);
+            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), Iconify.IconValue.fa_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
         } else {
             ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
         }
