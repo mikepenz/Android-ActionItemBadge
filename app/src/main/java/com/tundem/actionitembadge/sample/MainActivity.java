@@ -1,17 +1,20 @@
 package com.tundem.actionitembadge.sample;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.joanzapata.android.iconify.Iconify;
+import com.tundem.aboutlibraries.Libs;
+import com.tundem.aboutlibraries.ui.LibsFragment;
 import com.tundem.actionitembadge.R;
 import com.tundem.actionitembadge.library.ActionItemBadge;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
     private int badgeCount = 10;
 
     private static final int SAMPLE2_ID = 34535;
@@ -22,6 +25,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         setTitle("");
+
+        //add used libraries section to the main activity so the view isn't so empty :D
+        Bundle bundle = new Bundle();
+        bundle.putStringArray(Libs.BUNDLE_FIELDS, Libs.toStringArray(R.string.class.getFields()));
+        bundle.putStringArray(Libs.BUNDLE_LIBS, new String[]{"androidiconify"});
+
+        bundle.putBoolean(Libs.BUNDLE_VERSION, true);
+        bundle.putBoolean(Libs.BUNDLE_LICENSE, true);
+
+        LibsFragment fragment = new LibsFragment();
+        fragment.setArguments(bundle);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
     }
 
 
@@ -46,20 +63,7 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_opensource) {
-            /*
-            Intent i = new Intent(getApplicationContext(), LibsActivity.class);
-            i.putExtra(Libs.BUNDLE_FIELDS, Libs.toStringArray(R.string.class.getFields()));
-            i.putExtra(Libs.BUNDLE_LIBS, new String[]{"AndroidIconify"});
-            i.putExtra(Libs.BUNDLE_VERSION, true);
-            i.putExtra(Libs.BUNDLE_LICENSE, true);
-
-            i.putExtra(Libs.BUNDLE_TITLE, getString(R.string.action_opensource));
-
-            startActivity(i);
-            */
-            return true;
-        } else if (id == R.id.item_samplebadge) {
+        if (id == R.id.item_samplebadge) {
             Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
             badgeCount--;
             invalidateOptionsMenu();
