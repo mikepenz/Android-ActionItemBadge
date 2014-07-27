@@ -8,16 +8,59 @@ The AboutLibraries Library is pushed to [Maven Central], so you just need to add
 
 ```javascript
 dependencies {
-	compile 'com.tundem.actionitembadge:library:1.1.0-SNAPSHOT@aar'
+	compile 'com.tundem.actionitembadge:library:1.1.0@aar'
 }
-```
-Note this is just in the snapshot repository right now. To use it add the following maven repo to your main build.gradle.
-```javascript
-maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 ```
 
 ##Usage
-Please check the sample
+###menu.xml
+Create your menu.xml as you would do normally and add the android:actionLayout param.
+It is also a good idea to set showAsAction="always" (The badge can only be shown in the actionbar)
+```xml
+<item
+        android:id="@+id/item_samplebadge"
+        android:actionLayout="@layout/menu_badge"
+        android:showAsAction="always"
+        android:title="@string/sample_1"/>
+```
+###Activity
+Override the onCreateOptionsMenu method
+```java
+ @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+	//you can add some logic (hide it if the count == 0)
+        if (badgeCount > 0) {
+            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), Iconify.IconValue.fa_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
+        } else {
+            ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
+        }
+
+	//If you want to add your ActionItem programmatically you can do this too. You do the following:
+        new ActionItemBadge.Add().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).build(ActionItemBadge.BadgeStyle.BLUE_LARGE, 1);
+        return true;
+    }
+```
+If you want to update the item itself you can do the required stuff in the onOptionsItemSelected method and
+call invalidateOptionsMenu() afterwards.
+```java
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.item_samplebadge) {
+            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
+            badgeCount--;
+            invalidateOptionsMenu();
+            return true;
+        } else if (id == SAMPLE2_ID) {
+            Toast.makeText(this, R.string.sample_4, Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+```
+
 
 #Developed By
 
