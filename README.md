@@ -8,7 +8,7 @@ The AboutLibraries Library is pushed to [Maven Central], so you just need to add
 
 ```javascript
 dependencies {
-	compile 'com.tundem.actionitembadge:library:1.0.2-SNAPSHOT@aar'
+	compile 'com.tundem.actionitembadge:library:1.1.0-SNAPSHOT@aar'
 }
 ```
 Note this is just in the snapshot repository right now. To use it add the following maven repo to your main build.gradle.
