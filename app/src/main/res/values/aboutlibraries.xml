@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aboutLibraries_description_showIcon">true</string>
+    <string name="aboutLibraries_description_showVersion">true</string>
+    <string name="aboutLibraries_description_text"><![CDATA[This is a small sample which showcases how to use the Android-ActionItemBadge.
+        <br/>
+        <br/>
+        The content is filled with the used libraries section from the AboutLibraries library.
+        <br/>
+        You can find this library here: https://github.com/mikepenz/Android-ActionItemBadge and the AboutLibraries library here:
+        https://github.com/mikepenz/AboutLibraries]]>
+    </string>
+</resources>
