@@ -67,7 +67,7 @@ call invalidateOptionsMenu() afterwards.
 ```
 
 #Dependencies
-Android-Iconify - https://github.com/JoanZapata/android-iconify
+* Android-Iconify - https://github.com/JoanZapata/android-iconify
 
 
 #Developed By
