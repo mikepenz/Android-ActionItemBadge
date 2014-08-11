@@ -1,4 +1,4 @@
-#Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library)
+#Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library) [![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/755)
 
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
 
