@@ -27,7 +27,7 @@ Add the SNAPSHOT repo to your repositories:
 And the compile dependency
 ```javascript
 dependencies {
-	compile 'com.tundem.actionitembadge:library-abs:1.2.0-SNAPSHOT@aar'
+	compile 'com.tundem.actionitembadge:library-abs:1.2.0@aar'
 }
 ```
 
