@@ -1,6 +1,11 @@
-#Android-ActionItemBadge
+#Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library) [![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/755)
 
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
+
+
+##Screenshots
+![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot1_small.png).
+![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot2_small.png)
 
 ##Include in your project
 ###Using Maven
@@ -60,6 +65,9 @@ call invalidateOptionsMenu() afterwards.
         return super.onOptionsItemSelected(item);
     }
 ```
+
+#Dependencies
+* Android-Iconify - https://github.com/JoanZapata/android-iconify
 
 
 #Developed By
