@@ -1,15 +1,15 @@
 package com.tundem.actionitembadge.library;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
 
@@ -77,15 +77,15 @@ public class ActionItemBadge {
 
         }
 
-        public Add(Activity activity, Menu menu, String title) {
+        public Add(SherlockFragmentActivity activity, Menu menu, String title) {
             this.activity = activity;
             this.menu = menu;
             this.title = title;
         }
 
-        private Activity activity;
+        private SherlockFragmentActivity activity;
 
-        public Add act(Activity activity) {
+        public Add act(SherlockFragmentActivity activity) {
             this.activity = activity;
             return this;
         }
@@ -161,22 +161,22 @@ public class ActionItemBadge {
         }
     }
 
-    public static void update(final Activity act, final MenuItem menu, int badgeCount) {
+    public static void update(final SherlockFragmentActivity act, final MenuItem menu, int badgeCount) {
         update(act, menu, null, BadgeStyle.GREY_LARGE, badgeCount);
     }
 
-    public static void update(final Activity act, final MenuItem menu, BadgeStyle style, int badgeCount) {
+    public static void update(final SherlockFragmentActivity act, final MenuItem menu, BadgeStyle style, int badgeCount) {
         if (style.getStyle() != BadgeStyle.Style.LARGE) {
             throw new RuntimeException("You are not allowed to call update without an icon on a Badge with default style");
         }
         update(act, menu, null, style, badgeCount);
     }
 
-    public static void update(final Activity act, final MenuItem menu, Iconify.IconValue icon, int badgeCount) {
+    public static void update(final SherlockFragmentActivity act, final MenuItem menu, Iconify.IconValue icon, int badgeCount) {
         update(act, menu, icon, BadgeStyle.GREY, badgeCount);
     }
 
-    public static void update(final Activity act, final MenuItem menu, Iconify.IconValue icon, BadgeStyle style, int badgeCount) {
+    public static void update(final SherlockFragmentActivity act, final MenuItem menu, Iconify.IconValue icon, BadgeStyle style, int badgeCount) {
         View badge = menu.getActionView();
 
         if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
