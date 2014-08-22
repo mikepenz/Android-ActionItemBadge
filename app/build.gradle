@@ -22,6 +22,7 @@ android {
 
 dependencies {
     compile project(':library')
-    compile 'com.tundem.aboutlibraries:library:2.1.5-SNAPSHOT@aar'
+    compile 'com.tundem.aboutlibraries:library:2.1.5@aar'
     compile 'com.android.support:support-v4:20.+'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
 }
