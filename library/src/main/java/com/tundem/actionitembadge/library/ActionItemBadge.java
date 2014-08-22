@@ -132,18 +132,28 @@ public class ActionItemBadge {
         }
 
         public Menu build(int badgeCount) {
-            return build(null, BadgeStyle.GREY_LARGE, badgeCount);
+            return build((Drawable) null, BadgeStyle.GREY_LARGE, badgeCount);
         }
 
         public Menu build(BadgeStyle style, int badgeCount) {
-            return build(null, style, badgeCount);
+            return build((Drawable) null, style, badgeCount);
         }
 
         public Menu build(Iconify.IconValue icon, int badgeCount) {
+            return build(new IconDrawable(activity, icon).colorRes(R.color.actionbar_text)
+                    .actionBarSize(), BadgeStyle.GREY, badgeCount);
+        }
+
+        public Menu build(Drawable icon, int badgeCount) {
             return build(icon, BadgeStyle.GREY, badgeCount);
         }
 
         public Menu build(Iconify.IconValue icon, BadgeStyle style, int badgeCount) {
+            return build(new IconDrawable(activity, icon).colorRes(R.color.actionbar_text)
+                    .actionBarSize(), style, badgeCount);
+        }
+
+        public Menu build(Drawable icon, BadgeStyle style, int badgeCount) {
             MenuItem item;
             if (groupId != null && itemId != null && order != null) {
                 item = menu.add(groupId, itemId, order, title);
@@ -162,27 +172,36 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity act, final MenuItem menu, int badgeCount) {
-        update(act, menu, null, BadgeStyle.GREY_LARGE, badgeCount);
+        update(act, menu, (Drawable) null, BadgeStyle.GREY_LARGE, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, BadgeStyle style, int badgeCount) {
         if (style.getStyle() != BadgeStyle.Style.LARGE) {
             throw new RuntimeException("You are not allowed to call update without an icon on a Badge with default style");
         }
-        update(act, menu, null, style, badgeCount);
+        update(act, menu, (Drawable) null, style, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, Iconify.IconValue icon, int badgeCount) {
+        update(act, menu, new IconDrawable(act, icon).colorRes(R.color.actionbar_text)
+                .actionBarSize(), BadgeStyle.GREY, badgeCount);
+    }
+
+    public static void update(final Activity act, final MenuItem menu, Drawable icon, int badgeCount) {
         update(act, menu, icon, BadgeStyle.GREY, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, Iconify.IconValue icon, BadgeStyle style, int badgeCount) {
+        update(act, menu, new IconDrawable(act, icon).colorRes(R.color.actionbar_text)
+                .actionBarSize(), style, badgeCount);
+    }
+
+    public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
         View badge = menu.getActionView();
 
         if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
             ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
-            ActionItemBadge.setBackground(imageView, new IconDrawable(act, icon).colorRes(R.color.actionbar_text)
-                    .actionBarSize());
+            ActionItemBadge.setBackground(imageView, icon);
 
             TextView textView = (TextView) badge.findViewById(R.id.menu_badge_text);
             if (badgeCount < 0) {
