@@ -17,6 +17,20 @@ dependencies {
 }
 ```
 
+You use ActionbarSherlock? No problem there's now a SNAPSHOT release for ActionbarSherlock. Just do the following:
+
+Add the SNAPSHOT repo to your repositories:
+```javascript
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+```
+
+And the compile dependency
+```javascript
+dependencies {
+	compile 'com.tundem.actionitembadge:library-abs:1.1.0-SNAPSHOT@aar'
+}
+```
+
 ##Usage
 ###menu.xml
 Create your menu.xml as you would do normally and add the android:actionLayout param.
