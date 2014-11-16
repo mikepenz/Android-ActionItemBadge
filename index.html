@@ -29,103 +29,103 @@
       </header>
       <section>
         <h1>
-<a name="android-actionitembadge--" class="anchor" href="#android-actionitembadge--"><span class="octicon octicon-link"></span></a>Android-ActionItemBadge <a href="https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library"><img src="https://maven-badges.herokuapp.com/maven-central/com.tundem.actionitembadge/library/badge.svg?style=flat" alt="Maven Central"></a> <a href="http://android-arsenal.com/details/1/755"><img src="http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat" alt="Android Arsenal"></a>
+<a id="android-actionitembadge--" class="anchor" href="#android-actionitembadge--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Android-ActionItemBadge <a href="https://maven-badges.herokuapp.com/maven-central/com.mikepenz.actionitembadge/library"><img src="https://maven-badges.herokuapp.com/maven-central/com.mikepenz.actionitembadge/library/badge.svg?style=flat" alt="Maven Central"></a> <a href="http://android-arsenal.com/details/1/755"><img src="http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat" alt="Android Arsenal"></a>
 </h1>
 
 <p>ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!</p>
 
 <h2>
-<a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 
 <p><img src="https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot1_small.png" alt="Image">.
 <img src="https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot2_small.png" alt="Image"></p>
 
 <h2>
-<a name="include-in-your-project" class="anchor" href="#include-in-your-project"><span class="octicon octicon-link"></span></a>Include in your project</h2>
+<a id="include-in-your-project" class="anchor" href="#include-in-your-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Include in your project</h2>
 
 <h3>
-<a name="using-maven" class="anchor" href="#using-maven"><span class="octicon octicon-link"></span></a>Using Maven</h3>
+<a id="using-maven" class="anchor" href="#using-maven" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Maven</h3>
 
 <p>The AboutLibraries Library is pushed to [Maven Central], so you just need to add the following dependency to your <code>build.gradle</code>.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">dependencies</span> <span class="p">{</span>
-    <span class="nx">compile</span> <span class="s1">'com.tundem.actionitembadge:library:1.2.0@aar'</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>dependencies {
+    compile <span class="pl-s1"><span class="pl-pds">'</span>com.mikepenz.actionitembadge:library:2.0.0@aar<span class="pl-pds">'</span></span>
+}</pre></div>
+
+<p>If you want to use this library with the old ActionBar. Do the following.</p>
+
+<div class="highlight highlight-javascript"><pre>dependencies {
+    compile <span class="pl-s1"><span class="pl-pds">'</span>com.tundem.actionitembadge:library:1.2.0@aar<span class="pl-pds">'</span></span>
+}</pre></div>
 
 <p>You use ActionbarSherlock? No problem there's now a SNAPSHOT release for ActionbarSherlock. Just do the following:</p>
 
 <p>Add the SNAPSHOT repo to your repositories:</p>
 
-<div class="highlight highlight-javascript"><pre>        <span class="nx">maven</span> <span class="p">{</span> <span class="nx">url</span> <span class="s1">'https://oss.sonatype.org/content/repositories/snapshots/'</span> <span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>        maven { url <span class="pl-s1"><span class="pl-pds">'</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="pl-pds">'</span></span> }</pre></div>
 
 <p>And the compile dependency</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">dependencies</span> <span class="p">{</span>
-    <span class="nx">compile</span> <span class="s1">'com.tundem.actionitembadge:library-abs:1.2.0@aar'</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>dependencies {
+    compile <span class="pl-s1"><span class="pl-pds">'</span>com.tundem.actionitembadge:library-abs:1.2.0@aar<span class="pl-pds">'</span></span>
+}</pre></div>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <h3>
-<a name="menuxml" class="anchor" href="#menuxml"><span class="octicon octicon-link"></span></a>menu.xml</h3>
+<a id="menuxml" class="anchor" href="#menuxml" aria-hidden="true"><span class="octicon octicon-link"></span></a>menu.xml</h3>
 
 <p>Create your menu.xml as you would do normally and add the android:actionLayout param.
 It is also a good idea to set showAsAction="always" (The badge can only be shown in the actionbar)</p>
 
-<div class="highlight highlight-xml"><pre><span class="nt">&lt;item</span>
-        <span class="na">android:id=</span><span class="s">"@+id/item_samplebadge"</span>
-        <span class="na">android:actionLayout=</span><span class="s">"@layout/menu_badge"</span>
-        <span class="na">android:showAsAction=</span><span class="s">"always"</span>
-        <span class="na">android:title=</span><span class="s">"@string/sample_1"</span><span class="nt">/&gt;</span>
-</pre></div>
+<div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">item</span>
+        <span class="pl-eoa">android</span><span class="pl-eoa">:</span><span class="pl-eoa">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>@+id/item_samplebadge<span class="pl-pds">"</span></span>
+        <span class="pl-eoa">android</span><span class="pl-eoa">:</span><span class="pl-eoa">actionLayout</span>=<span class="pl-s1"><span class="pl-pds">"</span>@layout/menu_badge<span class="pl-pds">"</span></span>
+        <span class="pl-eoa">android</span><span class="pl-eoa">:</span><span class="pl-eoa">showAsAction</span>=<span class="pl-s1"><span class="pl-pds">"</span>always<span class="pl-pds">"</span></span>
+        <span class="pl-eoa">android</span><span class="pl-eoa">:</span><span class="pl-eoa">title</span>=<span class="pl-s1"><span class="pl-pds">"</span>@string/sample_1<span class="pl-pds">"</span></span>/&gt;</pre></div>
 
 <h3>
-<a name="activity" class="anchor" href="#activity"><span class="octicon octicon-link"></span></a>Activity</h3>
+<a id="activity" class="anchor" href="#activity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activity</h3>
 
 <p>Override the onCreateOptionsMenu method</p>
 
-<div class="highlight highlight-java"><pre> <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreateOptionsMenu</span><span class="o">(</span><span class="n">Menu</span> <span class="n">menu</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Inflate the menu; this adds items to the action bar if it is present.</span>
-        <span class="n">getMenuInflater</span><span class="o">().</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">menu</span><span class="o">.</span><span class="na">main</span><span class="o">,</span> <span class="n">menu</span><span class="o">);</span>
+<div class="highlight highlight-java"><pre> @<span class="pl-s">Override</span>
+    <span class="pl-s">public</span> <span class="pl-s">boolean</span> onCreateOptionsMenu(<span class="pl-s">Menu</span> menu) {
+        <span class="pl-c"><span class="pl-pdc">//</span> Inflate the menu; this adds items to the action bar if it is present.</span>
+        getMenuInflater()<span class="pl-ko">.</span>inflate(<span class="pl-s">R</span><span class="pl-ko">.</span>menu<span class="pl-ko">.</span>main, menu);
 
-    <span class="c1">//you can add some logic (hide it if the count == 0)</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">badgeCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">ActionItemBadge</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">menu</span><span class="o">.</span><span class="na">findItem</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_samplebadge</span><span class="o">),</span> <span class="n">Iconify</span><span class="o">.</span><span class="na">IconValue</span><span class="o">.</span><span class="na">fa_android</span><span class="o">,</span> <span class="n">ActionItemBadge</span><span class="o">.</span><span class="na">BadgeStyle</span><span class="o">.</span><span class="na">DARKGREY</span><span class="o">,</span> <span class="n">badgeCount</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">ActionItemBadge</span><span class="o">.</span><span class="na">hide</span><span class="o">(</span><span class="n">menu</span><span class="o">.</span><span class="na">findItem</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_samplebadge</span><span class="o">));</span>
-        <span class="o">}</span>
+    <span class="pl-c"><span class="pl-pdc">//</span>you can add some logic (hide it if the count == 0)</span>
+        <span class="pl-k">if</span> (badgeCount <span class="pl-ko">&gt;</span> <span class="pl-cn">0</span>) {
+            <span class="pl-s">ActionItemBadge</span><span class="pl-ko">.</span>update(<span class="pl-v">this</span>, menu<span class="pl-ko">.</span>findItem(<span class="pl-s">R</span><span class="pl-ko">.</span>id<span class="pl-ko">.</span>item_samplebadge), <span class="pl-s">Iconify</span><span class="pl-ko">.</span><span class="pl-s">IconValue</span><span class="pl-ko">.</span>fa_android, <span class="pl-s">ActionItemBadge</span><span class="pl-ko">.</span><span class="pl-s">BadgeStyle</span><span class="pl-c1"><span class="pl-ko">.</span>DARKGREY</span>, badgeCount);
+        } <span class="pl-k">else</span> {
+            <span class="pl-s">ActionItemBadge</span><span class="pl-ko">.</span>hide(menu<span class="pl-ko">.</span>findItem(<span class="pl-s">R</span><span class="pl-ko">.</span>id<span class="pl-ko">.</span>item_samplebadge));
+        }
 
-    <span class="c1">//If you want to add your ActionItem programmatically you can do this too. You do the following:</span>
-        <span class="k">new</span> <span class="n">ActionItemBadge</span><span class="o">.</span><span class="na">Add</span><span class="o">().</span><span class="na">act</span><span class="o">(</span><span class="k">this</span><span class="o">).</span><span class="na">menu</span><span class="o">(</span><span class="n">menu</span><span class="o">).</span><span class="na">title</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">sample_2</span><span class="o">).</span><span class="na">itemDetails</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">SAMPLE2_ID</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="na">showAsAction</span><span class="o">(</span><span class="n">MenuItem</span><span class="o">.</span><span class="na">SHOW_AS_ACTION_ALWAYS</span><span class="o">).</span><span class="na">build</span><span class="o">(</span><span class="n">ActionItemBadge</span><span class="o">.</span><span class="na">BadgeStyle</span><span class="o">.</span><span class="na">BLUE_LARGE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-</pre></div>
+    <span class="pl-c"><span class="pl-pdc">//</span>If you want to add your ActionItem programmatically you can do this too. You do the following:</span>
+        <span class="pl-k">new</span> <span class="pl-s">ActionItemBadge</span>.<span class="pl-s">Add</span>()<span class="pl-ko">.</span>act(<span class="pl-v">this</span>)<span class="pl-ko">.</span>menu(menu)<span class="pl-ko">.</span>title(<span class="pl-s">R</span><span class="pl-ko">.</span>string<span class="pl-ko">.</span>sample_2)<span class="pl-ko">.</span>itemDetails(<span class="pl-cn">0</span>, <span class="pl-c1">SAMPLE2_ID</span>, <span class="pl-cn">1</span>)<span class="pl-ko">.</span>showAsAction(<span class="pl-s">MenuItem</span><span class="pl-c1"><span class="pl-ko">.</span>SHOW_AS_ACTION_ALWAYS</span>)<span class="pl-ko">.</span>build(<span class="pl-s">ActionItemBadge</span><span class="pl-ko">.</span><span class="pl-s">BadgeStyle</span><span class="pl-c1"><span class="pl-ko">.</span>BLUE_LARGE</span>, <span class="pl-cn">1</span>);
+        <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+    }</pre></div>
 
 <p>If you want to update the item itself you can do the required stuff in the onOptionsItemSelected method and
 call invalidateOptionsMenu() afterwards.</p>
 
-<div class="highlight highlight-java"><pre>    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="na">getItemId</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">id</span> <span class="o">==</span> <span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_samplebadge</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">sample_3</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
-            <span class="n">badgeCount</span><span class="o">--;</span>
-            <span class="n">invalidateOptionsMenu</span><span class="o">();</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">id</span> <span class="o">==</span> <span class="n">SAMPLE2_ID</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">sample_4</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onOptionsItemSelected</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
-    <span class="o">}</span>
-</pre></div>
+<div class="highlight highlight-java"><pre>    @<span class="pl-s">Override</span>
+    <span class="pl-s">public</span> <span class="pl-s">boolean</span> onOptionsItemSelected(<span class="pl-s">MenuItem</span> item) {
+        <span class="pl-s">int</span> id <span class="pl-ko">=</span> item<span class="pl-ko">.</span>getItemId();
+        <span class="pl-k">if</span> (id <span class="pl-ko">==</span> <span class="pl-s">R</span><span class="pl-ko">.</span>id<span class="pl-ko">.</span>item_samplebadge) {
+            <span class="pl-s">Toast</span><span class="pl-ko">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-s">R</span><span class="pl-ko">.</span>string<span class="pl-ko">.</span>sample_3, <span class="pl-s">Toast</span><span class="pl-c1"><span class="pl-ko">.</span>LENGTH_SHORT</span>)<span class="pl-ko">.</span>show();
+            badgeCount<span class="pl-ko">--</span>;
+            invalidateOptionsMenu();
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        } <span class="pl-k">else</span> <span class="pl-k">if</span> (id <span class="pl-ko">==</span> <span class="pl-c1">SAMPLE2_ID</span>) {
+            <span class="pl-s">Toast</span><span class="pl-ko">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-s">R</span><span class="pl-ko">.</span>string<span class="pl-ko">.</span>sample_4, <span class="pl-s">Toast</span><span class="pl-c1"><span class="pl-ko">.</span>LENGTH_SHORT</span>)<span class="pl-ko">.</span>show();
+        }
+        <span class="pl-k">return</span> <span class="pl-v">super</span><span class="pl-ko">.</span>onOptionsItemSelected(item);
+    }</pre></div>
 
 <h1>
-<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h1>
 
 <ul>
 <li>Android-Iconify - <a href="https://github.com/JoanZapata/android-iconify">https://github.com/JoanZapata/android-iconify</a>
@@ -133,7 +133,7 @@ call invalidateOptionsMenu() afterwards.</p>
 </ul>
 
 <h1>
-<a name="developed-by" class="anchor" href="#developed-by"><span class="octicon octicon-link"></span></a>Developed By</h1>
+<a id="developed-by" class="anchor" href="#developed-by" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developed By</h1>
 
 <ul>
 <li>Mike Penz - <a href="http://mikepenz.com">http://mikepenz.com</a> - <a href="mailto:penz@tundem.com">penz@tundem.com</a>
@@ -141,7 +141,7 @@ call invalidateOptionsMenu() afterwards.</p>
 </ul>
 
 <h1>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
 
 <pre><code>Copyright 2014 Mike Penz
 
