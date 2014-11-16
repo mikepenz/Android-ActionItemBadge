@@ -1,4 +1,4 @@
-package com.tundem.actionitembadge.library;
+package com.mikepenz.actionitembadge.library;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

@@ -1,4 +1,4 @@
-package com.tundem.actionitembadge.sample;
+package com.mikepenz.actionitembadge.sample;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.ui.LibsFragment;
+import com.mikepenz.actionitembadge.R;
+import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikpenz.iconics.typeface.FontAwesome;
-import com.tundem.actionitembadge.R;
-import com.tundem.actionitembadge.library.ActionItemBadge;
 
 
 public class MainActivity extends ActionBarActivity {
