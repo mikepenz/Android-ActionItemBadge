@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.joanzapata.android.iconify.IconDrawable;
-import com.joanzapata.android.iconify.Iconify;
+import com.mikpenz.iconics.IconicsDrawable;
+import com.mikpenz.iconics.typeface.IIcon;
 
 /**
  * Created by mikepenz on 23.07.14.
@@ -139,18 +139,16 @@ public class ActionItemBadge {
             return build((Drawable) null, style, badgeCount);
         }
 
-        public Menu build(Iconify.IconValue icon, int badgeCount) {
-            return build(new IconDrawable(activity, icon).colorRes(R.color.actionbar_text)
-                    .actionBarSize(), BadgeStyle.GREY, badgeCount);
+        public Menu build(IIcon icon, int badgeCount) {
+            return build(new IconicsDrawable(activity, icon).colorRes(R.color.actionbar_text).actionBarSize(), BadgeStyle.GREY, badgeCount);
         }
 
         public Menu build(Drawable icon, int badgeCount) {
             return build(icon, BadgeStyle.GREY, badgeCount);
         }
 
-        public Menu build(Iconify.IconValue icon, BadgeStyle style, int badgeCount) {
-            return build(new IconDrawable(activity, icon).colorRes(R.color.actionbar_text)
-                    .actionBarSize(), style, badgeCount);
+        public Menu build(IIcon icon, BadgeStyle style, int badgeCount) {
+            return build(new IconicsDrawable(activity, icon).colorRes(R.color.actionbar_text).actionBarSize(), style, badgeCount);
         }
 
         public Menu build(Drawable icon, BadgeStyle style, int badgeCount) {
@@ -182,18 +180,16 @@ public class ActionItemBadge {
         update(act, menu, (Drawable) null, style, badgeCount);
     }
 
-    public static void update(final Activity act, final MenuItem menu, Iconify.IconValue icon, int badgeCount) {
-        update(act, menu, new IconDrawable(act, icon).colorRes(R.color.actionbar_text)
-                .actionBarSize(), BadgeStyle.GREY, badgeCount);
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, int badgeCount) {
+        update(act, menu, new IconicsDrawable(act, icon).colorRes(R.color.actionbar_text).actionBarSize(), BadgeStyle.GREY, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, Drawable icon, int badgeCount) {
         update(act, menu, icon, BadgeStyle.GREY, badgeCount);
     }
 
-    public static void update(final Activity act, final MenuItem menu, Iconify.IconValue icon, BadgeStyle style, int badgeCount) {
-        update(act, menu, new IconDrawable(act, icon).colorRes(R.color.actionbar_text)
-                .actionBarSize(), style, badgeCount);
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyle style, int badgeCount) {
+        update(act, menu, new IconicsDrawable(act, icon).colorRes(R.color.actionbar_text).actionBarSize(), style, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {

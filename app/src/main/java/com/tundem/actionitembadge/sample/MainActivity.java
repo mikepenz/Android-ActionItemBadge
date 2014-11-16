@@ -1,20 +1,21 @@
 package com.tundem.actionitembadge.sample;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.joanzapata.android.iconify.Iconify;
-import com.tundem.aboutlibraries.Libs;
-import com.tundem.aboutlibraries.ui.LibsFragment;
+import com.mikepenz.aboutlibraries.Libs;
+import com.mikepenz.aboutlibraries.ui.LibsFragment;
+import com.mikpenz.iconics.typeface.FontAwesome;
 import com.tundem.actionitembadge.R;
 import com.tundem.actionitembadge.library.ActionItemBadge;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity {
     private int badgeCount = 10;
 
     private static final int SAMPLE2_ID = 34535;
@@ -24,7 +25,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("");
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayUseLogoEnabled(true);
+            ab.setTitle("");
+            ab.show();
+        }
 
         //add used libraries section to the main activity so the view isn't so empty :D
         Bundle bundle = new Bundle();
@@ -48,7 +54,7 @@ public class MainActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
 
         if (badgeCount > 0) {
-            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), Iconify.IconValue.fa_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
+            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
         } else {
             ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
         }
