@@ -13,6 +13,13 @@ The AboutLibraries Library is pushed to [Maven Central], so you just need to add
 
 ```javascript
 dependencies {
+	compile 'com.mikepenz.actionitembadge:library:2.0.0@aar'
+}
+```
+
+If you want to use this library with the old ActionBar. Do the following.
+```javascript
+dependencies {
 	compile 'com.tundem.actionitembadge:library:1.2.0@aar'
 }
 ```
