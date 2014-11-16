@@ -207,6 +207,7 @@ public class ActionItemBadge {
             if (badgeCount < 0) {
                 textView.setVisibility(View.GONE);
             } else {
+                textView.setVisibility(View.VISIBLE);
                 textView.setText(String.valueOf(badgeCount));
                 textView.setBackgroundResource(style.getDrawable());
             }
