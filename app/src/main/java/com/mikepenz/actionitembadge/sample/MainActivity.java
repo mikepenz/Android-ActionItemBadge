@@ -35,8 +35,6 @@ public class MainActivity extends ActionBarActivity {
         //add used libraries section to the main activity so the view isn't so empty :D
         Bundle bundle = new Bundle();
         bundle.putStringArray(Libs.BUNDLE_FIELDS, Libs.toStringArray(R.string.class.getFields()));
-        bundle.putStringArray(Libs.BUNDLE_LIBS, new String[]{"androidiconify"});
-
         bundle.putBoolean(Libs.BUNDLE_VERSION, true);
         bundle.putBoolean(Libs.BUNDLE_LICENSE, true);
 
