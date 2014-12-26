@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mikpenz.iconics.IconicsDrawable;
-import com.mikpenz.iconics.typeface.IIcon;
+import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.iconics.typeface.IIcon;
 
 /**
  * Created by mikepenz on 23.07.14.

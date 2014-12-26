@@ -12,7 +12,7 @@ import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.ui.LibsFragment;
 import com.mikepenz.actionitembadge.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
-import com.mikpenz.iconics.typeface.FontAwesome;
+import com.mikepenz.iconics.typeface.FontAwesome;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -32,15 +32,8 @@ public class MainActivity extends ActionBarActivity {
             ab.show();
         }
 
-        //add used libraries section to the main activity so the view isn't so empty :D
-        Bundle bundle = new Bundle();
-        bundle.putStringArray(Libs.BUNDLE_FIELDS, Libs.toStringArray(R.string.class.getFields()));
-        bundle.putBoolean(Libs.BUNDLE_VERSION, true);
-        bundle.putBoolean(Libs.BUNDLE_LICENSE, true);
-
-        LibsFragment fragment = new LibsFragment();
-        fragment.setArguments(bundle);
-
+        //init and show about libraries :D
+        LibsFragment fragment = new Libs.Builder().withFields(R.string.class.getFields()).withVersionShown(true).withLicenseShown(true).fragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
     }
