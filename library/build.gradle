@@ -2,10 +2,9 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.mikepenz.actionitembadge.library"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 200
@@ -13,7 +12,7 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -21,5 +20,5 @@ android {
 apply from: 'gradle-mvn-push.gradle'
 
 dependencies {
-    compile 'com.mikepenz.iconics:library:0.5.1'
+    compile 'com.mikepenz.iconics:library:0.7.0'
 }
