@@ -13,7 +13,9 @@ The AboutLibraries Library is pushed to [Maven Central], so you just need to add
 
 ```javascript
 dependencies {
-	compile 'com.mikepenz.actionitembadge:library:2.0.0@aar'
+	compile('com.mikepenz.actionitembadge:library:2.0.0@aar') {
+	    transitive = true
+	}
 }
 ```
 
