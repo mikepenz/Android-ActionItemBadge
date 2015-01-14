@@ -42,14 +42,18 @@ dependencies {
 
 ##Usage
 ###menu.xml
-Create your menu.xml as you would do normally and add the android:actionLayout param.
+Create your menu.xml as you would do normally and add the app:actionLayout param.
 It is also a good idea to set showAsAction="always" (The badge can only be shown in the actionbar)
 ```xml
-<item
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
         android:id="@+id/item_samplebadge"
-        android:actionLayout="@layout/menu_badge"
-        android:showAsAction="always"
+        app:actionLayout="@layout/menu_badge"
+        app:showAsAction="always"
         android:title="@string/sample_1"/>
+</menu>
 ```
 ###Activity
 Override the onCreateOptionsMenu method
