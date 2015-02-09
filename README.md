@@ -42,14 +42,18 @@ dependencies {
 
 ##Usage
 ###menu.xml
-Create your menu.xml as you would do normally and add the android:actionLayout param.
+Create your menu.xml as you would do normally and add the app:actionLayout param.
 It is also a good idea to set showAsAction="always" (The badge can only be shown in the actionbar)
 ```xml
-<item
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
         android:id="@+id/item_samplebadge"
-        android:actionLayout="@layout/menu_badge"
-        android:showAsAction="always"
+        app:actionLayout="@layout/menu_badge"
+        app:showAsAction="always"
         android:title="@string/sample_1"/>
+</menu>
 ```
 ###Activity
 Override the onCreateOptionsMenu method
@@ -61,7 +65,7 @@ Override the onCreateOptionsMenu method
 
 	//you can add some logic (hide it if the count == 0)
         if (badgeCount > 0) {
-            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), Iconify.IconValue.fa_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
+            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
         } else {
             ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
         }
@@ -90,12 +94,12 @@ call invalidateOptionsMenu() afterwards.
 ```
 
 #Dependencies
-* Android-Iconify - https://github.com/JoanZapata/android-iconify
+* Android-Iconics - https://github.com/mikepenz/Android-Iconics
 
 
 #Developed By
 
-* Mike Penz - http://mikepenz.com - <penz@tundem.com>
+* Mike Penz - http://mikepenz.com - <mike@lanora.io>
 
 
 #License
