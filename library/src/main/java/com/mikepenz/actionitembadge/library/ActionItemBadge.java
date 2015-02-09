@@ -170,7 +170,7 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity act, final MenuItem menu, int badgeCount) {
-        update(act, menu, (Drawable) null, BadgeStyle.GREY_LARGE, badgeCount);
+        update(act, menu, (Drawable) null, null, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, BadgeStyle style, int badgeCount) {
@@ -193,34 +193,60 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
-        View badge = menu.getActionView();
+        if (menu != null) {
+            View badge = menu.getActionView();
 
-        if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
-            ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
-            ActionItemBadge.setBackground(imageView, icon);
+            if (style != null) {
+                if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
+                    ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
+                    if (icon != null) {
+                        ActionItemBadge.setBackground(imageView, icon);
+                    }
 
-            TextView textView = (TextView) badge.findViewById(R.id.menu_badge_text);
-            if (badgeCount < 0) {
-                textView.setVisibility(View.GONE);
+                    TextView textView = (TextView) badge.findViewById(R.id.menu_badge_text);
+                    if (badgeCount < 0) {
+                        textView.setVisibility(View.GONE);
+                    } else {
+                        textView.setVisibility(View.VISIBLE);
+                        textView.setText(String.valueOf(badgeCount));
+                        textView.setBackgroundResource(style.getDrawable());
+                    }
+                } else {
+                    Button button = (Button) badge.findViewById(R.id.menu_badge_button);
+                    button.setBackgroundResource(style.getDrawable());
+                    button.setText(String.valueOf(badgeCount));
+                }
             } else {
-                textView.setVisibility(View.VISIBLE);
-                textView.setText(String.valueOf(badgeCount));
-                textView.setBackgroundResource(style.getDrawable());
+                // i know this is not nice but the best solution to allow doing an update without a style
+                ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
+                if (imageView != null) {
+                    if (icon != null) {
+                        ActionItemBadge.setBackground(imageView, icon);
+                    }
+
+                    TextView textView = (TextView) badge.findViewById(R.id.menu_badge_text);
+                    if (badgeCount < 0) {
+                        textView.setVisibility(View.GONE);
+                    } else {
+                        textView.setVisibility(View.VISIBLE);
+                        textView.setText(String.valueOf(badgeCount));
+                    }
+                } else {
+                    Button button = (Button) badge.findViewById(R.id.menu_badge_button);
+                    button.setBackgroundResource(style.getDrawable());
+                    button.setText(String.valueOf(badgeCount));
+                }
             }
-        } else {
-            Button button = (Button) badge.findViewById(R.id.menu_badge_button);
-            button.setBackgroundResource(style.getDrawable());
-            button.setText(String.valueOf(badgeCount));
+
+            badge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    act.onOptionsItemSelected(menu);
+                }
+            });
+
+            menu.setVisible(true);
         }
-
-        badge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                act.onOptionsItemSelected(menu);
-            }
-        });
-
-        menu.setVisible(true);
     }
 
     public static void hide(MenuItem menu) {
