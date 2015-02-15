@@ -9,7 +9,7 @@ ActionItemBadge is a library which offers a simple and easy to use method to add
 
 ##Include in your project
 ###Using Maven
-The AboutLibraries Library is pushed to [Maven Central], so you just need to add the following dependency to your `build.gradle`.
+The ActionItemBadge Library is pushed to [Maven Central], so you just need to add the following dependency to your `build.gradle`.
 
 ```javascript
 dependencies {
