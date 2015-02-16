@@ -1,10 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme.ActionBar" parent="Theme.AppCompat">
         <!-- Here we setting appcompat’s actionBarStyle -->
         <item name="windowActionBar">true</item>
 
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/theme_default_primary</item>
+        <item name="colorPrimaryDark">@color/theme_default_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- ...and here we setting appcompat’s color theming attrs -->
         <item name="colorPrimary">@color/theme_default_primary</item>
         <item name="colorPrimaryDark">@color/theme_default_primary_dark</item>
