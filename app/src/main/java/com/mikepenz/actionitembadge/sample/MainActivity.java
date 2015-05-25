@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.mikepenz.aboutlibraries.Libs;
+import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.aboutlibraries.ui.LibsFragment;
 import com.mikepenz.actionitembadge.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         //init and show about libraries :D
-        LibsFragment fragment = new Libs.Builder().withFields(R.string.class.getFields()).withVersionShown(true).withLicenseShown(true).fragment();
+        LibsFragment fragment = new LibsBuilder().withFields(R.string.class.getFields()).withVersionShown(true).withLicenseShown(true).fragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
     }
