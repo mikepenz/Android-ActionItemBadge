@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.2'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         applicationId "com.mikepenz.actionitembadge.sample"
         minSdkVersion 14
-        targetSdkVersion 21
-        versionCode 210
-        versionName "2.1.0"
+        targetSdkVersion 22
+        versionCode 250
+        versionName "2.5.0"
     }
     buildTypes {
         release {

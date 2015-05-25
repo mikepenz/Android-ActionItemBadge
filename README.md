@@ -1,4 +1,4 @@
-#Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.mikepenz.actionitembadge/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.mikepenz.actionitembadge/library) [![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/755)
+#Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.mikepenz/actionitembadge/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.mikepenz/actionitembadge) [![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/755)
 
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
 
@@ -13,7 +13,7 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile('com.mikepenz.actionitembadge:library:2.1.0@aar') {
+	compile('com.mikepenz:actionitembadge:2.5.0@aar') {
 	    transitive = true
 	}
 }
@@ -104,7 +104,7 @@ call invalidateOptionsMenu() afterwards.
 
 #License
 
-    Copyright 2014 Mike Penz
+    Copyright 2015 Mike Penz
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
