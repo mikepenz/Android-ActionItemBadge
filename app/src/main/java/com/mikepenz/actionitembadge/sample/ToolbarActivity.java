@@ -3,7 +3,7 @@ package com.mikepenz.actionitembadge.sample;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.iconics.typeface.FontAwesome;
 
 
-public class ToolbarActivity extends ActionBarActivity {
+public class ToolbarActivity extends AppCompatActivity {
     private int badgeCount = 10;
 
     private static final int SAMPLE2_ID = 34535;
