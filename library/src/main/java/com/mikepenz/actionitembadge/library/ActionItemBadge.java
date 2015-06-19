@@ -233,7 +233,9 @@ public class ActionItemBadge {
                     }
                 } else {
                     Button button = (Button) badge.findViewById(R.id.menu_badge_button);
-                    button.setBackgroundResource(style.getDrawable());
+                    if (style != null) {
+                        button.setBackgroundResource(style.getDrawable());
+                    }
                     button.setText(String.valueOf(badgeCount));
                 }
             }
