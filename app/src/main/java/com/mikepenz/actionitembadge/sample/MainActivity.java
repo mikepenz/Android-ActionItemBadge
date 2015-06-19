@@ -1,6 +1,5 @@
 package com.mikepenz.actionitembadge.sample;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
@@ -49,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
             ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
         } else {
             ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
-
-            Intent intent = new Intent(MainActivity.this, ToolbarActivity.class);
-            startActivity(intent);
         }
 
         new ActionItemBadge.Add().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).build(ActionItemBadge.BadgeStyle.BLUE_LARGE, 1);

@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.mikepenz.actionitembadge">
+    package="com.mikepenz.actionitembadge">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name">
         <activity
-            android:name="com.mikepenz.actionitembadge.sample.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.ActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.mikepenz.actionitembadge.sample.ToolbarActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name="com.mikepenz.actionitembadge.sample.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.ActionBar" />
     </application>
 
 </manifest>
