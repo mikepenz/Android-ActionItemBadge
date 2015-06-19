@@ -37,7 +37,7 @@ public class ActionItemBadge {
         private int drawable;
         private int layout;
 
-        private BadgeStyle(Style style, int drawable, int layout) {
+        BadgeStyle(Style style, int drawable, int layout) {
             this.style = style;
             this.drawable = drawable;
             this.layout = layout;
@@ -62,7 +62,7 @@ public class ActionItemBadge {
 
             private int style;
 
-            private Style(int style) {
+            Style(int style) {
                 this.style = style;
             }
 
@@ -213,8 +213,10 @@ public class ActionItemBadge {
                     }
                 } else {
                     Button button = (Button) badge.findViewById(R.id.menu_badge_button);
-                    button.setBackgroundResource(style.getDrawable());
-                    button.setText(String.valueOf(badgeCount));
+                    if (button != null) {
+                        button.setBackgroundResource(style.getDrawable());
+                        button.setText(String.valueOf(badgeCount));
+                    }
                 }
             } else {
                 // i know this is not nice but the best solution to allow doing an update without a style
@@ -233,7 +235,9 @@ public class ActionItemBadge {
                     }
                 } else {
                     Button button = (Button) badge.findViewById(R.id.menu_badge_button);
-                    button.setBackgroundResource(style.getDrawable());
+                    if (style != null) {
+                        button.setBackgroundResource(style.getDrawable());
+                    }
                     button.setText(String.valueOf(badgeCount));
                 }
             }
