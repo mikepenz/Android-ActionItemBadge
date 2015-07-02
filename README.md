@@ -4,7 +4,6 @@
 
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
 
-
 ##Screenshots
 ![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot1_small.png).
 ![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot2_small.png)
@@ -15,7 +14,7 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile('com.mikepenz:actionitembadge:2.5.5@aar') {
+	compile('com.mikepenz:actionitembadge:3.0.0@aar') {
 	    transitive = true
 	}
 }
@@ -28,19 +27,9 @@ dependencies {
 }
 ```
 
-You use ActionbarSherlock? No problem there's now a SNAPSHOT release for ActionbarSherlock. Just do the following:
-
-Add the SNAPSHOT repo to your repositories:
-```javascript
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-```
-
-And the compile dependency
-```javascript
-dependencies {
-	compile 'com.tundem.actionitembadge:library-abs:1.2.0@aar'
-}
-```
+##UPGRADE NOTES
+####< 3.0.0
+- If you come from a version prior 3.0.0 you will have to rename some classes, and the default styles also found a new place. Just check out the updated sample app for all the changes.
 
 ##Usage
 ###menu.xml
@@ -65,18 +54,19 @@ Override the onCreateOptionsMenu method
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
-	//you can add some logic (hide it if the count == 0)
+	    //you can add some logic (hide it if the count == 0)
         if (badgeCount > 0) {
-            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, ActionItemBadge.BadgeStyle.DARKGREY, badgeCount);
+            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, ActionItemBadge.BadgeStyles.DARK_GREY, badgeCount);
         } else {
             ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
         }
 
-	//If you want to add your ActionItem programmatically you can do this too. You do the following:
-        new ActionItemBadge.Add().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).build(ActionItemBadge.BadgeStyle.BLUE_LARGE, 1);
+	    //If you want to add your ActionItem programmatically you can do this too. You do the following:
+        new ActionItemBadgeAdder().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(bigStyle, 1);
         return true;
     }
 ```
+
 If you want to update the item itself you can do the required stuff in the onOptionsItemSelected method and
 call invalidateOptionsMenu() afterwards.
 ```java
@@ -84,9 +74,9 @@ call invalidateOptionsMenu() afterwards.
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.item_samplebadge) {
-            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();.LENGTH_SHORT).show();
             badgeCount--;
-            invalidateOptionsMenu();
+            ActionItemBadge.update(item, badgeCount);
             return true;
         } else if (id == SAMPLE2_ID) {
             Toast.makeText(this, R.string.sample_4, Toast.LENGTH_SHORT).show();
