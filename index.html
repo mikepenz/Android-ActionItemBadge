@@ -30,8 +30,8 @@
 <h2>
 <a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 
-<p><img src="https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot1_small.png" alt="Image">.
-<img src="https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot2_small.png" alt="Image"></p>
+<p><img src="https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot1_small.png" alt="Image">
+<img src="https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot2_small.png" alt="Image"></p>
 
 <h2>
 <a id="include-in-your-project" class="anchor" href="#include-in-your-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Include in your project</h2>
@@ -42,7 +42,7 @@
 <p>The ActionItemBadge Library is pushed to [Maven Central], so you just need to add the following dependency to your <code>build.gradle</code>.</p>
 
 <div class="highlight highlight-javascript"><pre>dependencies {
-    <span class="pl-en">compile</span>('<span class="pl-smi">com</span>.mikepenz:actionitembadge:2.5.5@aar') {
+    <span class="pl-en">compile</span>('<span class="pl-smi">com</span>.mikepenz:actionitembadge:3.0.0@aar') {
         transitive <span class="pl-k">=</span> <span class="pl-c1">true</span>
     }
 }</pre></div>
@@ -53,17 +53,15 @@
     compile <span class="pl-s"><span class="pl-pds">'</span>com.tundem.actionitembadge:library:1.2.0@aar<span class="pl-pds">'</span></span>
 }</pre></div>
 
-<p>You use ActionbarSherlock? No problem there's now a SNAPSHOT release for ActionbarSherlock. Just do the following:</p>
+<h2>
+<a id="upgrade-notes" class="anchor" href="#upgrade-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>UPGRADE NOTES</h2>
 
-<p>Add the SNAPSHOT repo to your repositories:</p>
+<h4>
+<a id="-300" class="anchor" href="#-300" aria-hidden="true"><span class="octicon octicon-link"></span></a>&lt; 3.0.0</h4>
 
-<div class="highlight highlight-javascript"><pre>        maven { url <span class="pl-s"><span class="pl-pds">'</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="pl-pds">'</span></span> }</pre></div>
-
-<p>And the compile dependency</p>
-
-<div class="highlight highlight-javascript"><pre>dependencies {
-    compile <span class="pl-s"><span class="pl-pds">'</span>com.tundem.actionitembadge:library-abs:1.2.0@aar<span class="pl-pds">'</span></span>
-}</pre></div>
+<ul>
+<li>If you come from a version prior 3.0.0 you will have to rename some classes, and the default styles also found a new place. Just check out the updated sample app for all the changes.</li>
+</ul>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -94,15 +92,15 @@ It is also a good idea to set showAsAction="always" (The badge can only be shown
         <span class="pl-c">// Inflate the menu; this adds items to the action bar if it is present.</span>
         getMenuInflater()<span class="pl-k">.</span>inflate(<span class="pl-smi">R</span><span class="pl-k">.</span>menu<span class="pl-k">.</span>main, menu);
 
-    <span class="pl-c">//you can add some logic (hide it if the count == 0)</span>
+        <span class="pl-c">//you can add some logic (hide it if the count == 0)</span>
         <span class="pl-k">if</span> (badgeCount <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
-            <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span>update(<span class="pl-v">this</span>, menu<span class="pl-k">.</span>findItem(<span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>item_samplebadge), <span class="pl-smi">FontAwesome</span><span class="pl-k">.</span><span class="pl-smi">Icon</span><span class="pl-k">.</span>faw_android, <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span><span class="pl-smi">BadgeStyle</span><span class="pl-c1"><span class="pl-k">.</span>DARKGREY</span>, badgeCount);
+            <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span>update(<span class="pl-v">this</span>, menu<span class="pl-k">.</span>findItem(<span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>item_samplebadge), <span class="pl-smi">FontAwesome</span><span class="pl-k">.</span><span class="pl-smi">Icon</span><span class="pl-k">.</span>faw_android, <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span><span class="pl-smi">BadgeStyles</span><span class="pl-c1"><span class="pl-k">.</span>DARK_GREY</span>, badgeCount);
         } <span class="pl-k">else</span> {
             <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span>hide(menu<span class="pl-k">.</span>findItem(<span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>item_samplebadge));
         }
 
-    <span class="pl-c">//If you want to add your ActionItem programmatically you can do this too. You do the following:</span>
-        <span class="pl-k">new</span> <span class="pl-smi">ActionItemBadge</span>.<span class="pl-smi">Add</span>()<span class="pl-k">.</span>act(<span class="pl-v">this</span>)<span class="pl-k">.</span>menu(menu)<span class="pl-k">.</span>title(<span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_2)<span class="pl-k">.</span>itemDetails(<span class="pl-c1">0</span>, <span class="pl-c1">SAMPLE2_ID</span>, <span class="pl-c1">1</span>)<span class="pl-k">.</span>showAsAction(<span class="pl-smi">MenuItem</span><span class="pl-c1"><span class="pl-k">.</span>SHOW_AS_ACTION_ALWAYS</span>)<span class="pl-k">.</span>build(<span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span><span class="pl-smi">BadgeStyle</span><span class="pl-c1"><span class="pl-k">.</span>BLUE_LARGE</span>, <span class="pl-c1">1</span>);
+        <span class="pl-c">//If you want to add your ActionItem programmatically you can do this too. You do the following:</span>
+        <span class="pl-k">new</span> <span class="pl-smi">ActionItemBadgeAdder</span>()<span class="pl-k">.</span>act(<span class="pl-v">this</span>)<span class="pl-k">.</span>menu(menu)<span class="pl-k">.</span>title(<span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_2)<span class="pl-k">.</span>itemDetails(<span class="pl-c1">0</span>, <span class="pl-c1">SAMPLE2_ID</span>, <span class="pl-c1">1</span>)<span class="pl-k">.</span>showAsAction(<span class="pl-smi">MenuItem</span><span class="pl-c1"><span class="pl-k">.</span>SHOW_AS_ACTION_ALWAYS</span>)<span class="pl-k">.</span>add(bigStyle, <span class="pl-c1">1</span>);
         <span class="pl-k">return</span> <span class="pl-c1">true</span>;
     }</pre></div>
 
@@ -113,9 +111,9 @@ call invalidateOptionsMenu() afterwards.</p>
     <span class="pl-k">public</span> <span class="pl-k">boolean</span> onOptionsItemSelected(<span class="pl-smi">MenuItem</span> item) {
         <span class="pl-k">int</span> id <span class="pl-k">=</span> item<span class="pl-k">.</span>getItemId();
         <span class="pl-k">if</span> (id <span class="pl-k">==</span> <span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>item_samplebadge) {
-            <span class="pl-smi">Toast</span><span class="pl-k">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_3, <span class="pl-smi">Toast</span><span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();
+            <span class="pl-smi">Toast</span><span class="pl-k">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_3, <span class="pl-smi">Toast</span><span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();<span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();
             badgeCount<span class="pl-k">--</span>;
-            invalidateOptionsMenu();
+            <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span>update(item, badgeCount);
             <span class="pl-k">return</span> <span class="pl-c1">true</span>;
         } <span class="pl-k">else</span> <span class="pl-k">if</span> (id <span class="pl-k">==</span> <span class="pl-c1">SAMPLE2_ID</span>) {
             <span class="pl-smi">Toast</span><span class="pl-k">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_4, <span class="pl-smi">Toast</span><span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();
