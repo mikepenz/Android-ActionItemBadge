@@ -155,7 +155,7 @@ public class ToolbarActivity extends AppCompatActivity {
         if (id == R.id.item_samplebadge) {
             Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
             badgeCount--;
-            invalidateOptionsMenu();
+            ActionItemBadge.update(item, badgeCount);
             return true;
         } else if (id == SAMPLE2_ID) {
             Toast.makeText(this, R.string.sample_4, Toast.LENGTH_SHORT).show();
