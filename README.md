@@ -5,8 +5,8 @@
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
 
 ##Screenshots
-![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot1_small.png).
-![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot2_small.png)
+![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot1_small.png)
+![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot2_small.png)
 
 ##Include in your project
 ###Using Maven
