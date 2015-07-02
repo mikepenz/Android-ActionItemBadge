@@ -1,6 +1,7 @@
 package com.mikepenz.actionitembadge.sample;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.aboutlibraries.ui.LibsFragment;
 import com.mikepenz.actionitembadge.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
+import com.mikepenz.actionitembadge.library.ActionItemBadgeAdder;
+import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -27,8 +30,8 @@ public class ToolbarActivity extends AppCompatActivity {
 
     private Drawer drawer;
 
-    private ActionItemBadge.BadgeStyle style = ActionItemBadge.BadgeStyle.DARKGREY;
-    private ActionItemBadge.BadgeStyle bigStyle = ActionItemBadge.BadgeStyle.DARKGREY_LARGE;
+    private BadgeStyle style = ActionItemBadge.BadgeStyles.DARK_GREY.getStyle();
+    private BadgeStyle bigStyle = ActionItemBadge.BadgeStyles.DARK_GREY_LARGE.getStyle();
     private int badgeCount = 10;
 
     private static final int SAMPLE2_ID = 34536;
@@ -55,8 +58,11 @@ public class ToolbarActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName("Green").withIdentifier(5),
                         new PrimaryDrawerItem().withName("Purple").withIdentifier(6),
                         new PrimaryDrawerItem().withName("Yellow").withIdentifier(7),
+                        new PrimaryDrawerItem().withName("Custom").withIdentifier(8),
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName("RESET COUNT").withIdentifier(10)
+                        new PrimaryDrawerItem().withName("SWITCH").withIdentifier(9).withCheckable(false),
+                        new PrimaryDrawerItem().withName("RESET COUNT").withIdentifier(10).withCheckable(false),
+                        new PrimaryDrawerItem().withName("HIDE BADGE").withIdentifier(11).withCheckable(false)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -66,28 +72,38 @@ public class ToolbarActivity extends AppCompatActivity {
                             startActivity(intent);
                             return false;
                         } else if (iDrawerItem.getIdentifier() == 1) {
-                            style = ActionItemBadge.BadgeStyle.DARKGREY;
-                            bigStyle = ActionItemBadge.BadgeStyle.DARKGREY_LARGE;
+                            style = ActionItemBadge.BadgeStyles.DARK_GREY.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.DARK_GREY_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 2) {
-                            style = ActionItemBadge.BadgeStyle.GREY;
-                            bigStyle = ActionItemBadge.BadgeStyle.GREY_LARGE;
+                            style = ActionItemBadge.BadgeStyles.GREY.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.GREY_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 3) {
-                            style = ActionItemBadge.BadgeStyle.RED;
-                            bigStyle = ActionItemBadge.BadgeStyle.RED_LARGE;
+                            style = ActionItemBadge.BadgeStyles.RED.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.RED_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 4) {
-                            style = ActionItemBadge.BadgeStyle.BLUE;
-                            bigStyle = ActionItemBadge.BadgeStyle.BLUE_LARGE;
+                            style = ActionItemBadge.BadgeStyles.BLUE.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.BLUE_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 5) {
-                            style = ActionItemBadge.BadgeStyle.GREEN;
-                            bigStyle = ActionItemBadge.BadgeStyle.GREEN_LARGE;
+                            style = ActionItemBadge.BadgeStyles.GREEN.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.GREEN_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 6) {
-                            style = ActionItemBadge.BadgeStyle.PURPLE;
-                            bigStyle = ActionItemBadge.BadgeStyle.PURPLE_LARGE;
+                            style = ActionItemBadge.BadgeStyles.PURPLE.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.PURPLE_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 7) {
-                            style = ActionItemBadge.BadgeStyle.YELLOW;
-                            bigStyle = ActionItemBadge.BadgeStyle.YELLOW_LARGE;
+                            style = ActionItemBadge.BadgeStyles.YELLOW.getStyle();
+                            bigStyle = ActionItemBadge.BadgeStyles.YELLOW_LARGE.getStyle();
+                        } else if (iDrawerItem.getIdentifier() == 8) {
+                            style = new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#FE0665"), Color.parseColor("#CC0548"), Color.parseColor("#EEEEEE"));
+                            bigStyle = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#FE0665"), Color.parseColor("#CC0548"), Color.parseColor("#EEEEEE"));
+                        } else if (iDrawerItem.getIdentifier() == 9) {
+                            BadgeStyle temp = style;
+                            style = bigStyle;
+                            bigStyle = temp;
+                            Toast.makeText(ToolbarActivity.this, "No icon provided for the previous large style", Toast.LENGTH_LONG).show();
                         } else if (iDrawerItem.getIdentifier() == 10) {
                             badgeCount = 10;
+                        } else if (iDrawerItem.getIdentifier() == 11) {
+                            badgeCount = Integer.MIN_VALUE;
                         }
 
                         invalidateOptionsMenu();
@@ -120,13 +136,13 @@ public class ToolbarActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
-        if (badgeCount > 0) {
-            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, style, badgeCount);
-        } else {
+        if (badgeCount == 0) {
             ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
+        } else {
+            ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, style, badgeCount);
         }
 
-        new ActionItemBadge.Add().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).build(bigStyle, 1);
+        new ActionItemBadgeAdder().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(bigStyle, 1);
         return true;
     }
 
