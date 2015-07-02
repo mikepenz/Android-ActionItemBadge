@@ -1,15 +1,18 @@
 package com.mikepenz.actionitembadge.library;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mikepenz.actionitembadge.library.utils.BadgeDrawableBuilder;
+import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
+import com.mikepenz.actionitembadge.library.utils.UIUtil;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.iconics.typeface.IIcon;
 
@@ -17,229 +20,91 @@ import com.mikepenz.iconics.typeface.IIcon;
  * Created by mikepenz on 23.07.14.
  */
 public class ActionItemBadge {
-    public enum BadgeStyle {
-        GREY(Style.DEFAULT, R.drawable.menu_grey_badge, R.layout.menu_badge),
-        DARKGREY(Style.DEFAULT, R.drawable.menu_darkgrey_badge, R.layout.menu_badge),
-        RED(Style.DEFAULT, R.drawable.menu_red_badge, R.layout.menu_badge),
-        BLUE(Style.DEFAULT, R.drawable.menu_blue_badge, R.layout.menu_badge),
-        GREEN(Style.DEFAULT, R.drawable.menu_green_badge, R.layout.menu_badge),
-        PURPLE(Style.DEFAULT, R.drawable.menu_purple_badge, R.layout.menu_badge),
-        YELLOW(Style.DEFAULT, R.drawable.menu_yellow_badge, R.layout.menu_badge),
-        GREY_LARGE(Style.LARGE, R.drawable.menu_grey_badge_large, R.layout.menu_badge_large),
-        DARKGREY_LARGE(Style.LARGE, R.drawable.menu_darkgrey_badge_large, R.layout.menu_badge_large),
-        RED_LARGE(Style.LARGE, R.drawable.menu_red_badge_large, R.layout.menu_badge_large),
-        BLUE_LARGE(Style.LARGE, R.drawable.menu_blue_badge_large, R.layout.menu_badge_large),
-        GREEN_LARGE(Style.LARGE, R.drawable.menu_green_badge_large, R.layout.menu_badge_large),
-        PURPLE_LARGE(Style.LARGE, R.drawable.menu_purple_badge_large, R.layout.menu_badge_large),
-        YELLOW_LARGE(Style.LARGE, R.drawable.menu_yellow_badge_large, R.layout.menu_badge_large);
+    public enum BadgeStyles {
+        GREY(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#e0e0e0"), Color.parseColor("#c7c7c7"), Color.BLACK)),
+        DARK_GREY(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#606060"), Color.parseColor("#3e3e3e"), Color.WHITE)),
+        RED(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#FF4444"), Color.parseColor("#CC0000"), Color.WHITE)),
+        BLUE(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#33B5E5"), Color.parseColor("#0099CC"), Color.WHITE)),
+        GREEN(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#99CC00"), Color.parseColor("#669900"), Color.WHITE)),
+        PURPLE(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#AA66CC"), Color.parseColor("#9933CC"), Color.WHITE)),
+        YELLOW(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#FFBB33"), Color.parseColor("#FF8800"), Color.WHITE)),
+        GREY_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#e0e0e0"), Color.parseColor("#c7c7c7"), Color.BLACK)),
+        DARK_GREY_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#606060"), Color.parseColor("#3e3e3e"), Color.WHITE)),
+        RED_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#FF4444"), Color.parseColor("#CC0000"), Color.WHITE)),
+        BLUE_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#33B5E5"), Color.parseColor("#0099CC"), Color.WHITE)),
+        GREEN_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#99CC00"), Color.parseColor("#669900"), Color.WHITE)),
+        PURPLE_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#AA66CC"), Color.parseColor("#9933CC"), Color.WHITE)),
+        YELLOW_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#FFBB33"), Color.parseColor("#FF8800"), Color.WHITE)),;
 
-        private Style style;
-        private int drawable;
-        private int layout;
+        private BadgeStyle style;
 
-        BadgeStyle(Style style, int drawable, int layout) {
+        BadgeStyles(BadgeStyle style) {
             this.style = style;
-            this.drawable = drawable;
-            this.layout = layout;
         }
 
-        public Style getStyle() {
+        public BadgeStyle getStyle() {
             return style;
         }
-
-        public int getDrawable() {
-            return drawable;
-        }
-
-        public int getLayout() {
-            return layout;
-        }
-
-
-        public enum Style {
-            DEFAULT(1),
-            LARGE(2);
-
-            private int style;
-
-            Style(int style) {
-                this.style = style;
-            }
-
-            public int getStyle() {
-                return style;
-            }
-        }
-    }
-
-    public static class Add {
-        public Add() {
-
-        }
-
-        public Add(Activity activity, Menu menu, String title) {
-            this.activity = activity;
-            this.menu = menu;
-            this.title = title;
-        }
-
-        private Activity activity;
-
-        public Add act(Activity activity) {
-            this.activity = activity;
-            return this;
-        }
-
-        private Menu menu;
-
-        public Add menu(Menu menu) {
-            this.menu = menu;
-            return this;
-        }
-
-        private String title;
-
-        public Add title(String title) {
-            this.title = title;
-            return this;
-        }
-
-        public Add title(int resId) {
-            if (activity == null) {
-                throw new RuntimeException("Activity not set");
-            }
-
-            this.title = activity.getString(resId);
-            return this;
-        }
-
-        private Integer groupId;
-        private Integer itemId;
-        private Integer order;
-
-        public Add itemDetails(int groupId, int itemId, int order) {
-            this.groupId = groupId;
-            this.itemId = itemId;
-            this.order = order;
-            return this;
-        }
-
-        private Integer showAsAction;
-
-        public Add showAsAction(int showAsAction) {
-            this.showAsAction = showAsAction;
-            return this;
-        }
-
-        public Menu build(int badgeCount) {
-            return build((Drawable) null, BadgeStyle.GREY_LARGE, badgeCount);
-        }
-
-        public Menu build(BadgeStyle style, int badgeCount) {
-            return build((Drawable) null, style, badgeCount);
-        }
-
-        public Menu build(IIcon icon, int badgeCount) {
-            return build(new IconicsDrawable(activity, icon).colorRes(R.color.actionbar_text).actionBarSize(), BadgeStyle.GREY, badgeCount);
-        }
-
-        public Menu build(Drawable icon, int badgeCount) {
-            return build(icon, BadgeStyle.GREY, badgeCount);
-        }
-
-        public Menu build(IIcon icon, BadgeStyle style, int badgeCount) {
-            return build(new IconicsDrawable(activity, icon).colorRes(R.color.actionbar_text).actionBarSize(), style, badgeCount);
-        }
-
-        public Menu build(Drawable icon, BadgeStyle style, int badgeCount) {
-            MenuItem item;
-            if (groupId != null && itemId != null && order != null) {
-                item = menu.add(groupId, itemId, order, title);
-            } else {
-                item = menu.add(title);
-            }
-
-            if (showAsAction != null) {
-                item.setShowAsAction(showAsAction);
-            }
-
-            item.setActionView(style.getLayout());
-            update(activity, item, icon, style, badgeCount);
-            return menu;
-        }
-    }
-
-    public static void update(final Activity act, final MenuItem menu, int badgeCount) {
-        update(act, menu, (Drawable) null, null, badgeCount);
-    }
-
-    public static void update(final Activity act, final MenuItem menu, BadgeStyle style, int badgeCount) {
-        if (style.getStyle() != BadgeStyle.Style.LARGE) {
-            throw new RuntimeException("You are not allowed to call update without an icon on a Badge with default style");
-        }
-        update(act, menu, (Drawable) null, style, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int badgeCount) {
-        update(act, menu, new IconicsDrawable(act, icon).colorRes(R.color.actionbar_text).actionBarSize(), BadgeStyle.GREY, badgeCount);
+        update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), badgeCount);
     }
 
-    public static void update(final Activity act, final MenuItem menu, Drawable icon, int badgeCount) {
-        update(act, menu, icon, BadgeStyle.GREY, badgeCount);
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyles style, int badgeCount) {
+        update(act, menu, icon, style.getStyle(), badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyle style, int badgeCount) {
-        update(act, menu, new IconicsDrawable(act, icon).colorRes(R.color.actionbar_text).actionBarSize(), style, badgeCount);
+        update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, badgeCount);
     }
 
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, int badgeCount) {
+        update(act, menu, icon, iconColor, BadgeStyles.DARK_GREY.getStyle(), badgeCount);
+    }
+
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, BadgeStyles style, int badgeCount) {
+        update(act, menu, icon, iconColor, style.getStyle(), badgeCount);
+    }
+
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, BadgeStyle style, int badgeCount) {
+        update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, badgeCount);
+    }
+
+    public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyles style, int badgeCount) {
+        update(act, menu, icon, style.getStyle(), badgeCount);
+    }
+
+    /**
+     * update the given menu item with icon and badgeCount and style
+     *
+     * @param act
+     * @param menu
+     * @param icon
+     * @param style
+     * @param badgeCount
+     */
     public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
         if (menu != null) {
-            View badge = menu.getActionView();
+            menu.setActionView(style.getLayout());
+            FrameLayout badge = (FrameLayout) menu.getActionView();
 
-            if (style != null) {
-                if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
-                    ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
-                    if (icon != null) {
-                        ActionItemBadge.setBackground(imageView, icon);
-                    }
-
-                    TextView textView = (TextView) badge.findViewById(R.id.menu_badge_text);
-                    if (badgeCount < 0) {
-                        textView.setVisibility(View.GONE);
-                    } else {
-                        textView.setVisibility(View.VISIBLE);
-                        textView.setText(String.valueOf(badgeCount));
-                        textView.setBackgroundResource(style.getDrawable());
-                    }
-                } else {
-                    Button button = (Button) badge.findViewById(R.id.menu_badge_button);
-                    if (button != null) {
-                        button.setBackgroundResource(style.getDrawable());
-                        button.setText(String.valueOf(badgeCount));
-                    }
-                }
-            } else {
-                // i know this is not nice but the best solution to allow doing an update without a style
+            if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
                 ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
-                if (imageView != null) {
-                    if (icon != null) {
-                        ActionItemBadge.setBackground(imageView, icon);
-                    }
-
-                    TextView textView = (TextView) badge.findViewById(R.id.menu_badge_text);
-                    if (badgeCount < 0) {
-                        textView.setVisibility(View.GONE);
-                    } else {
-                        textView.setVisibility(View.VISIBLE);
-                        textView.setText(String.valueOf(badgeCount));
-                    }
-                } else {
-                    Button button = (Button) badge.findViewById(R.id.menu_badge_button);
-                    if (style != null) {
-                        button.setBackgroundResource(style.getDrawable());
-                    }
-                    button.setText(String.valueOf(badgeCount));
+                if (icon != null) {
+                    UIUtil.setBackground(imageView, icon);
                 }
+            }
+
+            //get the badgeView. We don't need to check which one we get as a button extends a TextView ;)
+            TextView badgeView = (TextView) badge.findViewById(R.id.menu_badge);
+            if (badgeCount == Integer.MIN_VALUE) {
+                badgeView.setVisibility(View.GONE);
+            } else {
+                badgeView.setVisibility(View.VISIBLE);
+                badgeView.setText(String.valueOf(badgeCount));
+                UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().color(style.getColor()).colorPressed(style.getColorPressed()).build(act));
+                badgeView.setTextColor(style.getTextColor());
             }
 
             badge.setOnClickListener(new View.OnClickListener() {
@@ -253,17 +118,49 @@ public class ActionItemBadge {
         }
     }
 
-    public static void hide(MenuItem menu) {
-        menu.setVisible(false);
+
+    public static void update(final MenuItem menu, int badgeCount) {
+        update(menu, null, badgeCount);
     }
 
-    @SuppressLint("NewApi")
-    private static void setBackground(View v, Drawable d) {
-        int sdk = android.os.Build.VERSION.SDK_INT;
-        if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            v.setBackgroundDrawable(d);
-        } else {
-            v.setBackground(d);
+    /**
+     * update the given menu item with icon and badgeCount
+     *
+     * @param menu
+     * @param icon
+     * @param badgeCount
+     */
+    public static void update(final MenuItem menu, Drawable icon, int badgeCount) {
+        if (menu != null) {
+            FrameLayout badge = (FrameLayout) menu.getActionView();
+            // i know this is not nice but the best solution to allow doing an update without a style
+            ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
+            if (imageView != null) {
+                if (icon != null) {
+                    UIUtil.setBackground(imageView, icon);
+                }
+
+                TextView textView = (TextView) badge.findViewById(R.id.menu_badge);
+                if (badgeCount < 0) {
+                    textView.setVisibility(View.GONE);
+                } else {
+                    textView.setVisibility(View.VISIBLE);
+                    textView.setText(String.valueOf(badgeCount));
+                }
+            } else {
+                Button button = (Button) badge.findViewById(R.id.menu_badge);
+                button.setText(String.valueOf(badgeCount));
+            }
         }
+    }
+
+
+    /**
+     * hide the given menu item
+     *
+     * @param menu
+     */
+    public static void hide(MenuItem menu) {
+        menu.setVisible(false);
     }
 }
