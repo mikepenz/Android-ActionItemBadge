@@ -20,13 +20,6 @@ dependencies {
 }
 ```
 
-If you want to use this library with the old ActionBar. Do the following.
-```javascript
-dependencies {
-	compile 'com.tundem.actionitembadge:library:1.2.0@aar'
-}
-```
-
 ##UPGRADE NOTES
 ####< 3.0.0
 - If you come from a version prior 3.0.0 you will have to rename some classes, and the default styles also found a new place. Just check out the updated sample app for all the changes.
