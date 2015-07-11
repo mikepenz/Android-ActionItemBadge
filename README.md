@@ -5,8 +5,8 @@
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
 
 ##Screenshots
-![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot1_small.png).
-![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/master/DEV/screenshot/screenshot2_small.png)
+![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot1_small.png)
+![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot2_small.png)
 
 ##Include in your project
 ###Using Maven
@@ -14,16 +14,9 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile('com.mikepenz:actionitembadge:3.0.0@aar') {
+	compile('com.mikepenz:actionitembadge:3.0.1@aar') {
 	    transitive = true
 	}
-}
-```
-
-If you want to use this library with the old ActionBar. Do the following.
-```javascript
-dependencies {
-	compile 'com.tundem.actionitembadge:library:1.2.0@aar'
 }
 ```
 
