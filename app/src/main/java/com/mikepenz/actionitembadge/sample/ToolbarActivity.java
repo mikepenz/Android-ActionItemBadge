@@ -18,6 +18,7 @@ import com.mikepenz.actionitembadge.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.actionitembadge.library.ActionItemBadgeAdder;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
+import com.mikepenz.actionitembadge.library.utils.UIUtil;
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -28,14 +29,12 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 public class ToolbarActivity extends AppCompatActivity {
 
+    private static final int SAMPLE2_ID = 34536;
     private Drawer drawer;
-
     private BadgeStyle style = ActionItemBadge.BadgeStyles.DARK_GREY.getStyle();
     private BadgeStyle bigStyle = ActionItemBadge.BadgeStyles.DARK_GREY_LARGE.getStyle();
     private int badgeCount = 10;
-
-    private static final int SAMPLE2_ID = 34536;
-
+    private int badgeDrawableCount = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +140,11 @@ public class ToolbarActivity extends AppCompatActivity {
         } else {
             ActionItemBadge.update(this, menu.findItem(R.id.item_samplebadge), FontAwesome.Icon.faw_android, style, badgeCount);
         }
+        if (badgeDrawableCount == 0) {
+            ActionItemBadge.hide(menu.findItem(R.id.item_sampleBadge_drawable));
+        } else {
+            ActionItemBadge.update(this, menu.findItem(R.id.item_sampleBadge_drawable), UIUtil.getCompatDrawable(this, R.drawable.ic_notification), style, badgeDrawableCount);
+        }
 
         new ActionItemBadgeAdder().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(bigStyle, 1);
         return true;
@@ -148,14 +152,15 @@ public class ToolbarActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.item_samplebadge) {
+        if (id == R.id.item_samplebadge){
             Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
             badgeCount--;
             ActionItemBadge.update(item, badgeCount);
+        } else if (id == R.id.item_sampleBadge_drawable) {
+            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
+            badgeDrawableCount--;
+            ActionItemBadge.update(item, badgeDrawableCount);
             return true;
         } else if (id == SAMPLE2_ID) {
             Toast.makeText(this, R.string.sample_4, Toast.LENGTH_SHORT).show();
