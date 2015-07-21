@@ -92,7 +92,7 @@ public class ActionItemBadge {
             if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
                 ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
                 if (icon != null) {
-                    UIUtil.setBackground(imageView, icon);
+                    imageView.setImageDrawable(icon);
                 }
             }
 
@@ -137,7 +137,7 @@ public class ActionItemBadge {
             ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
             if (imageView != null) {
                 if (icon != null) {
-                    UIUtil.setBackground(imageView, icon);
+                    imageView.setImageDrawable(icon);
                 }
 
                 TextView textView = (TextView) badge.findViewById(R.id.menu_badge);
