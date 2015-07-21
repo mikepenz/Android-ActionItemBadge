@@ -7,4 +7,11 @@
         app:actionLayout="@layout/menu_badge"
         app:showAsAction="always"
         android:title="@string/sample_1"/>
+
+    <item
+        android:id="@+id/item_sampleBadge_drawable"
+        android:title="@string/sample_1"
+        app:actionLayout="@layout/menu_badge"
+        app:showAsAction="always"/>
+
 </menu>
