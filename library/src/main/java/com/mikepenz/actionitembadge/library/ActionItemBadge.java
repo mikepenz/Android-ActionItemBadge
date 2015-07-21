@@ -76,48 +76,62 @@ public class ActionItemBadge {
     }
 
     /**
-     * update the given menu item with icon and badgeCount and style
+     * update the given menu item with icon, badgeCount and style
      *
-     * @param act
+     * @param activity use to bind onOptionsItemSelected
      * @param menu
      * @param icon
      * @param style
      * @param badgeCount
+     *
      */
-    public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
-        if (menu != null) {
-            menu.setActionView(style.getLayout());
-            FrameLayout badge = (FrameLayout) menu.getActionView();
+    public static void update(final Activity activity,final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
+        if (menu == null) return;
 
-            if (style.getStyle() == BadgeStyle.Style.DEFAULT) {
-                ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
-                if (icon != null) {
-                    UIUtil.setBackground(imageView, icon);
-                }
-            }
+        FrameLayout badge;
+        TextView badgeView;
+        ImageView imageView;
 
-            //get the badgeView. We don't need to check which one we get as a button extends a TextView ;)
-            TextView badgeView = (TextView) badge.findViewById(R.id.menu_badge);
-            if (badgeCount == Integer.MIN_VALUE) {
-                badgeView.setVisibility(View.GONE);
-            } else {
-                badgeView.setVisibility(View.VISIBLE);
-                badgeView.setText(String.valueOf(badgeCount));
-                UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().color(style.getColor()).colorPressed(style.getColorPressed()).build(act));
-                badgeView.setTextColor(style.getTextColor());
-            }
+        if (style == null){
+            badge = (FrameLayout) menu.getActionView();
+        }else {
+            badge = (FrameLayout) menu.setActionView(style.getLayout()).getActionView();
+        }
 
+        badgeView = (TextView) badge.findViewById(R.id.menu_badge);
+        imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
+
+        //Display icon in ImageView
+        if (imageView != null && icon != null){
+            imageView.setImageDrawable(icon);
+        }
+
+        //Bind onOptionsItemSelected to the activity
+        if (activity != null){
             badge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    act.onOptionsItemSelected(menu);
+                    activity.onOptionsItemSelected(menu);
                 }
             });
-
-            menu.setVisible(true);
         }
-    }
 
+        //Apply style if it's set
+        if (style != null){
+            UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().color(style.getColor()).colorPressed(style.getColorPressed()).build(activity));
+            badgeView.setTextColor(style.getTextColor());
+        }
+
+        //Manage min value
+        if (badgeCount == Integer.MIN_VALUE) {
+            badgeView.setVisibility(View.GONE);
+        } else {
+            badgeView.setVisibility(View.VISIBLE);
+            badgeView.setText(String.valueOf(badgeCount));
+        }
+
+        menu.setVisible(true);
+    }
 
     public static void update(final MenuItem menu, int badgeCount) {
         update(menu, null, badgeCount);
@@ -131,27 +145,7 @@ public class ActionItemBadge {
      * @param badgeCount
      */
     public static void update(final MenuItem menu, Drawable icon, int badgeCount) {
-        if (menu != null) {
-            FrameLayout badge = (FrameLayout) menu.getActionView();
-            // i know this is not nice but the best solution to allow doing an update without a style
-            ImageView imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
-            if (imageView != null) {
-                if (icon != null) {
-                    UIUtil.setBackground(imageView, icon);
-                }
-
-                TextView textView = (TextView) badge.findViewById(R.id.menu_badge);
-                if (badgeCount < 0) {
-                    textView.setVisibility(View.GONE);
-                } else {
-                    textView.setVisibility(View.VISIBLE);
-                    textView.setText(String.valueOf(badgeCount));
-                }
-            } else {
-                Button button = (Button) badge.findViewById(R.id.menu_badge);
-                button.setText(String.valueOf(badgeCount));
-            }
-        }
+        update(null, menu, icon,(BadgeStyle) null, badgeCount);
     }
 
 
