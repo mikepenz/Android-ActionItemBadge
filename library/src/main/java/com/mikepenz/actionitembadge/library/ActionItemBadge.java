@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,6 +47,14 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int badgeCount) {
+        if (badgeCount == Integer.MIN_VALUE) {
+            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), null);
+        } else {
+            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), String.valueOf(badgeCount));
+        }
+    }
+
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, String badgeCount) {
         update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), badgeCount);
     }
 
@@ -56,6 +63,14 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyle style, int badgeCount) {
+        if (badgeCount == Integer.MIN_VALUE) {
+            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, null);
+        } else {
+            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, String.valueOf(badgeCount));
+        }
+    }
+
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyle style, String badgeCount) {
         update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, badgeCount);
     }
 
@@ -68,33 +83,79 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, BadgeStyle style, int badgeCount) {
+        if (badgeCount == Integer.MIN_VALUE) {
+            update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, null);
+        } else {
+            update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, String.valueOf(badgeCount));
+        }
+    }
+
+    public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, BadgeStyle style, String badgeCount) {
         update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyles style, int badgeCount) {
+        if (badgeCount == Integer.MIN_VALUE) {
+            update(act, menu, icon, style.getStyle(), null);
+        } else {
+            update(act, menu, icon, style.getStyle(), String.valueOf(badgeCount));
+        }
+    }
+
+    public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyles style, String badgeCount) {
         update(act, menu, icon, style.getStyle(), badgeCount);
+    }
+
+
+    public static void update(final MenuItem menu, int badgeCount) {
+        update(menu, null, badgeCount);
+    }
+
+    public static void update(final MenuItem menu, String badgeCount) {
+        update(menu, null, badgeCount);
+    }
+
+    public static void update(final MenuItem menu, Drawable icon, int badgeCount) {
+        if (badgeCount == Integer.MIN_VALUE) {
+            update(null, menu, icon, (BadgeStyle) null, null);
+        } else {
+            update(null, menu, icon, (BadgeStyle) null, String.valueOf(badgeCount));
+        }
+    }
+
+    public static void update(final MenuItem menu, Drawable icon, String badgeCount) {
+        update(null, menu, icon, (BadgeStyle) null, badgeCount);
+
+    }
+
+
+    public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
+        if (badgeCount == Integer.MIN_VALUE) {
+            update(activity, menu, icon, style, null);
+        } else {
+            update(activity, menu, icon, style, String.valueOf(badgeCount));
+        }
     }
 
     /**
      * update the given menu item with icon, badgeCount and style
      *
-     * @param activity use to bind onOptionsItemSelected
+     * @param activity   use to bind onOptionsItemSelected
      * @param menu
      * @param icon
      * @param style
      * @param badgeCount
-     *
      */
-    public static void update(final Activity activity,final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
+    public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, String badgeCount) {
         if (menu == null) return;
 
         FrameLayout badge;
         TextView badgeView;
         ImageView imageView;
 
-        if (style == null){
+        if (style == null) {
             badge = (FrameLayout) menu.getActionView();
-        }else {
+        } else {
             badge = (FrameLayout) menu.setActionView(style.getLayout()).getActionView();
         }
 
@@ -102,12 +163,12 @@ public class ActionItemBadge {
         imageView = (ImageView) badge.findViewById(R.id.menu_badge_icon);
 
         //Display icon in ImageView
-        if (imageView != null && icon != null){
+        if (imageView != null && icon != null) {
             imageView.setImageDrawable(icon);
         }
 
         //Bind onOptionsItemSelected to the activity
-        if (activity != null){
+        if (activity != null) {
             badge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -117,13 +178,13 @@ public class ActionItemBadge {
         }
 
         //Apply style if it's set
-        if (style != null){
+        if (style != null) {
             UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().color(style.getColor()).colorPressed(style.getColorPressed()).build(activity));
             badgeView.setTextColor(style.getTextColor());
         }
 
         //Manage min value
-        if (badgeCount == Integer.MIN_VALUE) {
+        if (badgeCount == null) {
             badgeView.setVisibility(View.GONE);
         } else {
             badgeView.setVisibility(View.VISIBLE);
@@ -131,21 +192,6 @@ public class ActionItemBadge {
         }
 
         menu.setVisible(true);
-    }
-
-    public static void update(final MenuItem menu, int badgeCount) {
-        update(menu, null, badgeCount);
-    }
-
-    /**
-     * update the given menu item with icon and badgeCount
-     *
-     * @param menu
-     * @param icon
-     * @param badgeCount
-     */
-    public static void update(final MenuItem menu, Drawable icon, int badgeCount) {
-        update(null, menu, icon,(BadgeStyle) null, badgeCount);
     }
 
 

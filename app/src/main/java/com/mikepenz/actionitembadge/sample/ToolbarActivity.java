@@ -18,6 +18,7 @@ import com.mikepenz.actionitembadge.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.actionitembadge.library.ActionItemBadgeAdder;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
+import com.mikepenz.actionitembadge.library.utils.NumberUtils;
 import com.mikepenz.actionitembadge.library.utils.UIUtil;
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -34,7 +35,7 @@ public class ToolbarActivity extends AppCompatActivity {
     private BadgeStyle style = ActionItemBadge.BadgeStyles.DARK_GREY.getStyle();
     private BadgeStyle bigStyle = ActionItemBadge.BadgeStyles.DARK_GREY_LARGE.getStyle();
     private int badgeCount = 10;
-    private int badgeDrawableCount = 10;
+    private int badgeDrawableCount = 100000000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +144,7 @@ public class ToolbarActivity extends AppCompatActivity {
         if (badgeDrawableCount == 0) {
             ActionItemBadge.hide(menu.findItem(R.id.item_sampleBadge_drawable));
         } else {
-            ActionItemBadge.update(this, menu.findItem(R.id.item_sampleBadge_drawable), UIUtil.getCompatDrawable(this, R.drawable.ic_notification), style, badgeDrawableCount);
+            ActionItemBadge.update(this, menu.findItem(R.id.item_sampleBadge_drawable), UIUtil.getCompatDrawable(this, R.drawable.ic_notification), style, NumberUtils.formatNumber(badgeDrawableCount));
         }
 
         new ActionItemBadgeAdder().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(bigStyle, 1);
@@ -153,14 +154,14 @@ public class ToolbarActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.item_samplebadge){
+        if (id == R.id.item_samplebadge) {
             Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
             badgeCount--;
             ActionItemBadge.update(item, badgeCount);
         } else if (id == R.id.item_sampleBadge_drawable) {
             Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
-            badgeDrawableCount--;
-            ActionItemBadge.update(item, badgeDrawableCount);
+            badgeDrawableCount = badgeDrawableCount - 1000;
+            ActionItemBadge.update(item, NumberUtils.formatNumber(badgeDrawableCount));
             return true;
         } else if (id == SAMPLE2_ID) {
             Toast.makeText(this, R.string.sample_4, Toast.LENGTH_SHORT).show();
