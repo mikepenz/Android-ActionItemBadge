@@ -26,45 +26,60 @@ public class BadgeStyle {
     private int color;
     private int colorPressed;
     private int textColor = Color.WHITE;
+    private int corner = -1;
 
     public Style getStyle() {
         return style;
     }
 
-    public void setStyle(Style style) {
+    public BadgeStyle setStyle(Style style) {
         this.style = style;
+        return this;
     }
 
     public int getLayout() {
         return layout;
     }
 
-    public void setLayout(int layout) {
+    public BadgeStyle setLayout(int layout) {
         this.layout = layout;
+        return this;
     }
 
     public int getColor() {
         return color;
     }
 
-    public void setColor(int color) {
+    public BadgeStyle setColor(int color) {
         this.color = color;
+        return this;
     }
 
     public int getColorPressed() {
         return colorPressed;
     }
 
-    public void setColorPressed(int colorPressed) {
+    public BadgeStyle setColorPressed(int colorPressed) {
         this.colorPressed = colorPressed;
+        return this;
     }
 
     public int getTextColor() {
         return textColor;
     }
 
-    public void setTextColor(int textColor) {
+    public BadgeStyle setTextColor(int textColor) {
         this.textColor = textColor;
+        return this;
+    }
+
+    public int getCorner() {
+        return corner;
+    }
+
+    public BadgeStyle setCorner(int corner) {
+        this.corner = corner;
+        return this;
     }
 
     public BadgeStyle(Style style, int layout, int color, int colorPressed) {
@@ -80,5 +95,14 @@ public class BadgeStyle {
         this.color = color;
         this.colorPressed = colorPressed;
         this.textColor = textColor;
+    }
+
+    public BadgeStyle(Style style, int layout, int color, int colorPressed, int textColor, int corner) {
+        this.style = style;
+        this.layout = layout;
+        this.color = color;
+        this.colorPressed = colorPressed;
+        this.textColor = textColor;
+        this.corner = corner;
     }
 }

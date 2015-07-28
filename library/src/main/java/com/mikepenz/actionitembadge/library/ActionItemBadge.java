@@ -179,7 +179,7 @@ public class ActionItemBadge {
 
         //Apply style if it's set
         if (style != null) {
-            UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().color(style.getColor()).colorPressed(style.getColorPressed()).build(activity));
+            UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().corners(style.getCorner()).color(style.getColor()).colorPressed(style.getColorPressed()).build(activity));
             badgeView.setTextColor(style.getTextColor());
         }
 
