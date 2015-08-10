@@ -6,6 +6,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
 
+import static android.util.TypedValue.COMPLEX_UNIT_DIP;
+import static android.util.TypedValue.applyDimension;
+
 /**
  * Created by mikepenz on 02.07.15.
  */
@@ -45,5 +48,10 @@ public class UIUtil {
         } catch (Exception ex) {
         }
         return d;
+    }
+
+
+    public static int convertDpToPx(Context context, float dp) {
+        return (int) applyDimension(COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
 }

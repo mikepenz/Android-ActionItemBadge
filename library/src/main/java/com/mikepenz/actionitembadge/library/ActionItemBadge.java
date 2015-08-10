@@ -2,12 +2,16 @@ package com.mikepenz.actionitembadge.library;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mikepenz.actionitembadge.library.utils.BadgeDrawableBuilder;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
@@ -173,6 +177,20 @@ public class ActionItemBadge {
                 @Override
                 public void onClick(View v) {
                     activity.onOptionsItemSelected(menu);
+                }
+            });
+
+            badge.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Display display = activity.getWindowManager().getDefaultDisplay();
+                    Point size = new Point();
+                    display.getSize(size);
+                    int width = size.x;
+                    Toast toast = Toast.makeText(activity, menu.getTitle(), Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP, width / 5, UIUtil.convertDpToPx(activity, 48)); //your width and height
+                    toast.show();
+                    return true;
                 }
             });
         }
