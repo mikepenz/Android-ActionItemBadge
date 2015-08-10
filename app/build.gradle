@@ -28,4 +28,5 @@ dependencies {
     compile('com.mikepenz:aboutlibraries:5.0.9@aar') {
         transitive = true
     }
+    compile 'com.mikepenz:iconics:1.6.2@aar'
 }
