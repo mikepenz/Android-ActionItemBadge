@@ -8,8 +8,8 @@ android {
         applicationId "com.mikepenz.actionitembadge.sample"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 304
-        versionName "3.0.4"
+        versionCode 305
+        versionName "3.0.5"
     }
     buildTypes {
         release {
@@ -28,4 +28,5 @@ dependencies {
     compile('com.mikepenz:aboutlibraries:5.0.9@aar') {
         transitive = true
     }
+    compile 'com.mikepenz:iconics:1.6.2@aar'
 }
