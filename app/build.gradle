@@ -8,8 +8,8 @@ android {
         applicationId "com.mikepenz.actionitembadge.sample"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 306
-        versionName "3.0.6"
+        versionCode 310
+        versionName "3.1.0"
     }
     buildTypes {
         release {
