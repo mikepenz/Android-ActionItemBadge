@@ -13,7 +13,7 @@ import com.mikepenz.aboutlibraries.ui.LibsFragment;
 import com.mikepenz.actionitembadge.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.actionitembadge.library.ActionItemBadgeAdder;
-import com.mikepenz.iconics.typeface.FontAwesome;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 
 
 public class MainActivity extends AppCompatActivity {
