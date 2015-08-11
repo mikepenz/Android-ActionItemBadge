@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.mikepenz.aboutlibraries.LibsBuilder;
@@ -20,7 +19,7 @@ import com.mikepenz.actionitembadge.library.ActionItemBadgeAdder;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
 import com.mikepenz.actionitembadge.library.utils.NumberUtils;
 import com.mikepenz.actionitembadge.library.utils.UIUtil;
-import com.mikepenz.iconics.typeface.FontAwesome;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -49,7 +48,7 @@ public class ToolbarActivity extends AppCompatActivity {
         drawer = new DrawerBuilder(this)
                 .withToolbar(toolbar)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName("Activity").withIdentifier(1000).withCheckable(false),
+                        new PrimaryDrawerItem().withName("Activity").withIdentifier(1000).withSelectable(false),
                         new DividerDrawerItem(),
                         new PrimaryDrawerItem().withName("Default (Dark Grey)").withIdentifier(1),
                         new PrimaryDrawerItem().withName("Grey").withIdentifier(2),
@@ -60,13 +59,13 @@ public class ToolbarActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName("Yellow").withIdentifier(7),
                         new PrimaryDrawerItem().withName("Custom").withIdentifier(8),
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName("SWITCH").withIdentifier(9).withCheckable(false),
-                        new PrimaryDrawerItem().withName("RESET COUNT").withIdentifier(10).withCheckable(false),
-                        new PrimaryDrawerItem().withName("HIDE BADGE").withIdentifier(11).withCheckable(false)
+                        new PrimaryDrawerItem().withName("SWITCH").withIdentifier(9).withSelectable(false),
+                        new PrimaryDrawerItem().withName("RESET COUNT").withIdentifier(10).withSelectable(false),
+                        new PrimaryDrawerItem().withName("HIDE BADGE").withIdentifier(11).withSelectable(false)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
+                    public boolean onItemClick(View view, int i, IDrawerItem iDrawerItem) {
                         if (iDrawerItem.getIdentifier() == 1000) {
                             Intent intent = new Intent(ToolbarActivity.this, MainActivity.class);
                             startActivity(intent);
