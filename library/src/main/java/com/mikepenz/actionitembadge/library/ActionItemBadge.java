@@ -206,7 +206,7 @@ public class ActionItemBadge {
             badgeView.setVisibility(View.GONE);
         } else {
             badgeView.setVisibility(View.VISIBLE);
-            badgeView.setText(String.valueOf(badgeCount));
+            badgeView.setText(badgeCount);
         }
 
         menu.setVisible(true);
