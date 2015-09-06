@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 311
-        versionName "3.1.1"
+        versionCode 312
+        versionName "3.1.2"
     }
     buildTypes {
         release {
@@ -20,5 +20,5 @@ android {
 apply from: 'gradle-mvn-push.gradle'
 
 dependencies {
-    compile 'com.mikepenz:iconics-core:1.7.2@aar'
+    compile 'com.mikepenz:iconics-core:1.7.6@aar'
 }
