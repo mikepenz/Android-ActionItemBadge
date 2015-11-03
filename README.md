@@ -14,11 +14,15 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile('com.mikepenz:actionitembadge:3.1.3@aar') {
+	compile('com.mikepenz:actionitembadge:3.1.4@aar') {
 	    transitive = true
 	}
 }
 ```
+
+###Additional dependency for the icon font
+If you are going to use the icon font you will have to add additional dependency for the font. 
+You can find all available addons here: https://github.com/mikepenz/Android-Iconics#2-choose-your-desired-fonts
 
 ##UPGRADE NOTES
 ####< 3.0.0
