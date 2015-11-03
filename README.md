@@ -14,7 +14,7 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile('com.mikepenz:actionitembadge:3.1.3@aar') {
+	compile('com.mikepenz:actionitembadge:3.1.4@aar') {
 	    transitive = true
 	}
 }
