@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 314
-        versionName "3.1.4"
+        versionCode 315
+        versionName "3.1.5"
     }
     buildTypes {
         release {
@@ -20,5 +20,5 @@ android {
 apply from: 'gradle-mvn-push.gradle'
 
 dependencies {
-    compile 'com.mikepenz:iconics-core:2.0.0@aar'
+    compile 'com.mikepenz:iconics-core:2.1.0@aar'
 }
