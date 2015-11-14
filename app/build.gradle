@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "com.mikepenz.actionitembadge.sample"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 315
-        versionName "3.1.5"
+        versionCode 316
+        versionName "3.1.6"
     }
     buildTypes {
         release {
@@ -22,7 +22,7 @@ android {
 
 dependencies {
     compile project(':library')
-    compile('com.mikepenz:materialdrawer:4.4.5@aar') {
+    compile('com.mikepenz:materialdrawer:4.4.6@aar') {
         transitive = true
         exclude module: "iconics-core"
     }
@@ -30,7 +30,7 @@ dependencies {
         transitive = true
     }
 
-    compile 'com.mikepenz:google-material-typeface:2.1.2.1@aar'
+    compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
-    compile 'com.mikepenz:crossfader:1.2.0@aar'
+    compile 'com.mikepenz:crossfader:1.3.1@aar'
 }
