@@ -20,5 +20,5 @@ android {
 apply from: 'gradle-mvn-push.gradle'
 
 dependencies {
-    compile 'com.mikepenz:iconics-core:2.1.1@aar'
+    compile 'com.mikepenz:iconics-core:2.2.0@aar'
 }
