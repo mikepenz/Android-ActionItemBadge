@@ -151,6 +151,20 @@ public class ActionItemBadge {
      * @param badgeCount
      */
     public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, String badgeCount) {
+        update(activity, menu, icon, style, badgeCount, null);
+    }
+
+    /**
+     * update the given menu item with icon, badgeCount and style
+     *
+     * @param activity   use to bind onOptionsItemSelected / and to display the toast
+     * @param menu
+     * @param icon
+     * @param style
+     * @param badgeCount
+     * @param listener
+     */
+    public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, String badgeCount, final ActionItemBadgeListener listener) {
         if (menu == null) return;
 
         FrameLayout badge;
@@ -176,7 +190,13 @@ public class ActionItemBadge {
             badge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    activity.onOptionsItemSelected(menu);
+                    boolean consumed = false;
+                    if (listener != null) {
+                        consumed = listener.onOptionsItemSelected(menu);
+                    }
+                    if (!consumed) {
+                        activity.onOptionsItemSelected(menu);
+                    }
                 }
             });
 
@@ -220,5 +240,10 @@ public class ActionItemBadge {
      */
     public static void hide(MenuItem menu) {
         menu.setVisible(false);
+    }
+
+
+    public interface ActionItemBadgeListener {
+        boolean onOptionsItemSelected(MenuItem menu);
     }
 }
