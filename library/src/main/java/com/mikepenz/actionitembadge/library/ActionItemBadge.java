@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -195,7 +196,7 @@ public class ActionItemBadge {
                         consumed = listener.onOptionsItemSelected(menu);
                     }
                     if (!consumed) {
-                        activity.onOptionsItemSelected(menu);
+                        activity.onMenuItemSelected(Window.FEATURE_OPTIONS_PANEL, menu);
                     }
                 }
             });
