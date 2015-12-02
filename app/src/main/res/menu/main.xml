@@ -1,17 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
-      tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
 
     <item
         android:id="@+id/item_samplebadge"
         app:actionLayout="@layout/menu_badge"
         app:showAsAction="always"
-        android:title="@string/sample_1"/>
+        android:title="@string/sample_1" />
 
     <item
         android:id="@+id/item_sampleBadge_drawable"
         android:title="@string/sample_1"
         app:actionLayout="@layout/menu_badge"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
 </menu>
