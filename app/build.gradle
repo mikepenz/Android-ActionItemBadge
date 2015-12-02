@@ -22,7 +22,7 @@ android {
 
 dependencies {
     compile project(':library')
-    compile('com.mikepenz:materialdrawer:4.4.7@aar') {
+    compile('com.mikepenz:materialdrawer:4.5.4@aar') {
         transitive = true
         exclude module: "iconics-core"
     }
