@@ -17,8 +17,7 @@ dependencies {
 	compile 'com.mikepenz:actionitembadge:3.2.0@aar'
 	
 	//SUB-DEPENDENCIES
-	//Android-Iconics - used to provide an easy API for icons 
-    compile 'com.mikepenz:iconics-core:2.5.0@aar' 
+    compile 'com.mikepenz:iconics-core:2.5.0@aar' //Android-Iconics - used to provide an easy API for icons 
 }
 ```
 
