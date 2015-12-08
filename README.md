@@ -90,8 +90,9 @@ call invalidateOptionsMenu() afterwards.
 
 #Developed By
 
-* Mike Penz - http://mikepenz.com - <mike@lanora.io>
-
+* Mike Penz 
+ * [mikepenz.com](http://mikepenz.com) - <mikepenz@gmail.com>
+ * [paypal.me/mikepenz](http://paypal.me/mikepenz)
 
 #License
 
