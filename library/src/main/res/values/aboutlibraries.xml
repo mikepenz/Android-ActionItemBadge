@@ -9,12 +9,12 @@
         Android-<b>ActionItemBadge</b> is a library which offers a simple and easy to use method to add a badge to your action item!!
         ]]>
     </string>
-    <string name="library_AndroidActionItemBadge_libraryVersion">3.2.0</string>
+    <string name="library_AndroidActionItemBadge_libraryVersion">3.2.1</string>
     <string name="library_AndroidActionItemBadge_libraryWebsite">https://github.com/mikepenz/Android-ActionItemBadge</string>
     <string name="library_AndroidActionItemBadge_licenseId">apache_2_0</string>
     <string name="library_AndroidActionItemBadge_isOpenSource">true</string>
     <string name="library_AndroidActionItemBadge_repositoryLink">https://github.com/mikepenz/Android-ActionItemBadge</string>
     <!-- Custom variables section -->
     <string name="library_AndroidActionItemBadge_owner">Mike Penz</string>
-    <string name="library_AndroidActionItemBadge_year">2014</string>
+    <string name="library_AndroidActionItemBadge_year">2016</string>
 </resources>

@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.mikepenz.actionitembadge.sample"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 320
-        versionName "3.2.0"
+        versionCode 321
+        versionName "3.2.1"
     }
     buildTypes {
         release {
@@ -22,14 +21,32 @@ android {
 
 dependencies {
     compile project(':library')
-    compile('com.mikepenz:materialdrawer:4.5.4@aar') {
-        transitive = true
-        exclude module: "iconics-core"
-    }
-    compile('com.mikepenz:aboutlibraries:5.3.3@aar') {
-        transitive = true
-    }
 
+    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    compile "com.android.support:cardview-v7:${rootProject.ext.supportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
+
+    // used to base on some backwards compatible themes
+    // contains util classes to support various android versions, and clean up code
+    // comes with the awesome "Holder"-Pattern
+    // https://github.com/mikepenz/Materialize
+    compile 'com.mikepenz:materialize:0.5.1@aar'
+
+    // used to provide out of the box icon font support. simplifies development,
+    // and provides scalable icons. the core is very very light
+    // https://github.com/mikepenz/Android-Iconics
+    compile 'com.mikepenz:iconics-core:2.5.4@aar'
+
+    //used to generate the drawer on the left
+    //https://github.com/mikepenz/MaterialDrawer
+    compile 'com.mikepenz:materialdrawer:4.6.4@aar'
+
+    //used to generate the Open Source section
+    //https://github.com/mikepenz/AboutLibraries
+    compile 'com.mikepenz:aboutlibraries:5.3.4@aar'
+
+    //used to display the icons in the drawer and in the menu
+    //https://github.com/mikepenz/Android-Iconics
     compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
     compile 'com.mikepenz:crossfader:1.3.2@aar'

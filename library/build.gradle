@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 320
-        versionName "3.2.0"
+        versionCode 321
+        versionName "3.2.1"
     }
     buildTypes {
         release {
@@ -18,7 +19,11 @@ android {
     }
 }
 apply from: 'gradle-mvn-push.gradle'
+apply from: 'gradle-jcenter-push.gradle'
 
 dependencies {
-    compile 'com.mikepenz:iconics-core:2.5.0@aar'
+    // used to provide out of the box icon font support. simplifies development,
+    // and provides scalable icons. the core is very very light
+    // https://github.com/mikepenz/Android-Iconics
+    compile 'com.mikepenz:iconics-core:2.5.4@aar'
 }
