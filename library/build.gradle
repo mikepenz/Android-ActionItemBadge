@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -18,6 +19,7 @@ android {
     }
 }
 apply from: 'gradle-mvn-push.gradle'
+apply from: 'gradle-jcenter-push.gradle'
 
 dependencies {
     // used to provide out of the box icon font support. simplifies development,
