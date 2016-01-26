@@ -14,7 +14,7 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile 'com.mikepenz:actionitembadge:3.2.1@aar'
+	compile 'com.mikepenz:actionitembadge:3.2.2@aar'
 	
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
