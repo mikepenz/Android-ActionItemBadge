@@ -12,7 +12,7 @@ buildscript {
 ext {
     compileSdkVersion = 23
     buildToolsVersion = "23.0.2"
-    supportLibVersion = "23.1.1"
+    supportLibVersion = "23.2.1"
 }
 
 allprojects {
@@ -23,5 +23,5 @@ allprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.10'
+    gradleVersion = '2.11'
 }
