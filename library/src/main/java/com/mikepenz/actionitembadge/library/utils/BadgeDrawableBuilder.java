@@ -36,7 +36,7 @@ public class BadgeDrawableBuilder {
     public StateListDrawable build(Context ctx) {
         StateListDrawable stateListDrawable = new StateListDrawable();
 
-        GradientDrawable normal = (GradientDrawable) UIUtil.getCompatDrawable(ctx, R.drawable.badge);
+        GradientDrawable normal = (GradientDrawable) UIUtil.getCompatDrawable(ctx, R.drawable.action_item_badge);
         GradientDrawable selected = (GradientDrawable) normal.getConstantState().newDrawable().mutate();
 
         normal.setColor(mColor);
