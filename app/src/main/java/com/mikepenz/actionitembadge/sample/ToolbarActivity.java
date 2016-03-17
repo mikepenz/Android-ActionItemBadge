@@ -92,8 +92,8 @@ public class ToolbarActivity extends AppCompatActivity {
                             style = ActionItemBadge.BadgeStyles.YELLOW.getStyle();
                             bigStyle = ActionItemBadge.BadgeStyles.YELLOW_LARGE.getStyle();
                         } else if (iDrawerItem.getIdentifier() == 8) {
-                            style = new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_badge, Color.parseColor("#FE0665"), Color.parseColor("#CC0548"), Color.parseColor("#EEEEEE"));
-                            bigStyle = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_large, Color.parseColor("#FE0665"), Color.parseColor("#CC0548"), Color.parseColor("#EEEEEE"));
+                            style = new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#FE0665"), Color.parseColor("#CC0548"), Color.parseColor("#EEEEEE"));
+                            bigStyle = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_action_item_badge_large, Color.parseColor("#FE0665"), Color.parseColor("#CC0548"), Color.parseColor("#EEEEEE"));
                         } else if (iDrawerItem.getIdentifier() == 9) {
                             BadgeStyle temp = style;
                             style = bigStyle;

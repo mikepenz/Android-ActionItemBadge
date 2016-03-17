@@ -5,14 +5,14 @@
 
     <item
         android:id="@+id/item_samplebadge"
-        app:actionLayout="@layout/menu_badge"
+        app:actionLayout="@layout/menu_action_item_badge"
         app:showAsAction="always"
         android:title="@string/sample_1" />
 
     <item
         android:id="@+id/item_sampleBadge_drawable"
         android:title="@string/sample_1"
-        app:actionLayout="@layout/menu_badge"
+        app:actionLayout="@layout/menu_action_item_badge"
         app:showAsAction="always" />
 
 </menu>
