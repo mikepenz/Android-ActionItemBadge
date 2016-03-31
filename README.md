@@ -40,7 +40,7 @@ It is also a good idea to set showAsAction="always" (The badge can only be shown
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_samplebadge"
-        app:actionLayout="@layout/menu_badge"
+        app:actionLayout="@layout/menu_action_item_badge"
         app:showAsAction="always"
         android:title="@string/sample_1"/>
 </menu>
