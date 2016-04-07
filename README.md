@@ -14,11 +14,11 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile 'com.mikepenz:actionitembadge:3.2.4@aar'
+	compile 'com.mikepenz:actionitembadge:3.2.5@aar'
 	
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
-    compile 'com.mikepenz:iconics-core:2.5.10@aar'
+    compile 'com.mikepenz:iconics-core:2.5.11@aar'
 }
 ```
 
@@ -40,7 +40,7 @@ It is also a good idea to set showAsAction="always" (The badge can only be shown
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_samplebadge"
-        app:actionLayout="@layout/menu_badge"
+        app:actionLayout="@layout/menu_action_item_badge"
         app:showAsAction="always"
         android:title="@string/sample_1"/>
 </menu>

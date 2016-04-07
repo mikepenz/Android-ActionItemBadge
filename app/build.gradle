@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 324
-        versionName "3.2.4"
+        versionCode 325
+        versionName "3.2.5"
     }
     buildTypes {
         release {
@@ -30,29 +30,29 @@ dependencies {
     // contains util classes to support various android versions, and clean up code
     // comes with the awesome "Holder"-Pattern
     // https://github.com/mikepenz/Materialize
-    compile 'com.mikepenz:materialize:0.8.6@aar'
+    compile 'com.mikepenz:materialize:0.8.8@aar'
 
     // used to fill the RecyclerView with the DrawerItems
     // and provides single and multi selection, expandable items
     // https://github.com/mikepenz/FastAdapter
-    compile 'com.mikepenz:fastadapter:1.2.5@aar'
+    compile 'com.mikepenz:fastadapter:1.4.0@aar'
 
     // used to provide out of the box icon font support. simplifies development,
     // and provides scalable icons. the core is very very light
     // https://github.com/mikepenz/Android-Iconics
-    compile 'com.mikepenz:iconics-core:2.5.10@aar'
+    compile 'com.mikepenz:iconics-core:2.5.11@aar'
 
     //used to generate the drawer on the left
     //https://github.com/mikepenz/MaterialDrawer
-    compile 'com.mikepenz:materialdrawer:5.1.4@aar'
+    compile 'com.mikepenz:materialdrawer:5.1.8@aar'
 
     //used to generate the Open Source section
     //https://github.com/mikepenz/AboutLibraries
-    compile 'com.mikepenz:aboutlibraries:5.5.9@aar'
+    compile 'com.mikepenz:aboutlibraries:5.6.3@aar'
 
     //used to display the icons in the drawer and in the menu
     //https://github.com/mikepenz/Android-Iconics
     compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
-    compile 'com.mikepenz:crossfader:1.3.6@aar'
+    compile 'com.mikepenz:crossfader:1.3.7@aar'
 }
