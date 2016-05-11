@@ -34,7 +34,7 @@ public class ToolbarActivity extends AppCompatActivity {
     private BadgeStyle style = ActionItemBadge.BadgeStyles.DARK_GREY.getStyle();
     private BadgeStyle bigStyle = ActionItemBadge.BadgeStyles.DARK_GREY_LARGE.getStyle();
     private int badgeCount = 10;
-    private int badgeDrawableCount = 100000000;
+    private int badgeDrawableCount = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
