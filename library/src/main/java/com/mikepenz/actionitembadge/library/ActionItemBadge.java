@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mikepenz.actionitembadge.library.utils.BadgeDrawableBuilder;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
 import com.mikepenz.actionitembadge.library.utils.UIUtil;
 import com.mikepenz.iconics.IconicsDrawable;
@@ -27,7 +26,7 @@ public class ActionItemBadge {
     public enum BadgeStyles {
         GREY(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#e0e0e0"), Color.parseColor("#c7c7c7"), Color.BLACK)),
         DARK_GREY(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#606060"), Color.parseColor("#3e3e3e"), Color.WHITE)),
-        RED(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#FF4444"), Color.parseColor("#CC0000"), Color.WHITE)),
+        RED(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#FF0000"), Color.parseColor("#CC0000"), Color.WHITE)),
         BLUE(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#33B5E5"), Color.parseColor("#0099CC"), Color.WHITE)),
         GREEN(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#99CC00"), Color.parseColor("#669900"), Color.WHITE)),
         PURPLE(new BadgeStyle(BadgeStyle.Style.DEFAULT, R.layout.menu_action_item_badge, Color.parseColor("#AA66CC"), Color.parseColor("#9933CC"), Color.WHITE)),
@@ -218,7 +217,7 @@ public class ActionItemBadge {
 
         //Apply style if it's set
         if (style != null) {
-            UIUtil.setBackground(badgeView, new BadgeDrawableBuilder().corners(style.getCorner()).color(style.getColor()).colorPressed(style.getColorPressed()).build(activity));
+            UIUtil.setBackground(badgeView, activity.getResources().getDrawable(R.drawable.unread_count_bg));
             badgeView.setTextColor(style.getTextColor());
         }
 
@@ -227,7 +226,15 @@ public class ActionItemBadge {
             badgeView.setVisibility(View.GONE);
         } else {
             badgeView.setVisibility(View.VISIBLE);
-            badgeView.setText(badgeCount);
+            if (imageView != null) {
+                imageView.setVisibility(View.VISIBLE);
+            }
+
+            if (Integer.valueOf(badgeCount) < 100) {
+                badgeView.setText(badgeCount);
+            } else {
+                badgeView.setText("99+");
+            }
         }
 
         menu.setVisible(true);
