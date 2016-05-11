@@ -18,11 +18,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
+        android:gravity="center"
         android:layout_marginTop="4dp"
         android:paddingBottom="1dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
         android:paddingTop="1dp"
+        android:background="@drawable/unread_count_bg"
         android:textColor="@android:color/white"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 </FrameLayout>

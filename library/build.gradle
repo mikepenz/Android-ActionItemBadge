@@ -1,15 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 22
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
-        versionCode 325
-        versionName "3.2.5"
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 328
+        versionName "3.2.8"
     }
     buildTypes {
         release {
@@ -18,8 +17,6 @@ android {
         }
     }
 }
-apply from: 'gradle-mvn-push.gradle'
-apply from: 'gradle-jcenter-push.gradle'
 
 dependencies {
     // used to provide out of the box icon font support. simplifies development,
