@@ -18,7 +18,7 @@ dependencies {
 	
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
-    compile 'com.mikepenz:iconics-core:2.5.11@aar'
+    compile 'com.mikepenz:iconics-core:2.6.0@aar'
 }
 ```
 
