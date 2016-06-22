@@ -73,7 +73,7 @@ call invalidateOptionsMenu() afterwards.
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.item_samplebadge) {
-            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
             badgeCount--;
             ActionItemBadge.update(item, badgeCount);
             return true;
