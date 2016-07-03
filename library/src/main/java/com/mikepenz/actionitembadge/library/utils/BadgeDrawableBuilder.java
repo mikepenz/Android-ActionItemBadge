@@ -3,6 +3,7 @@ package com.mikepenz.actionitembadge.library.utils;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.ColorInt;
 import android.util.StateSet;
 
 import com.mikepenz.actionitembadge.library.R;
@@ -14,22 +15,34 @@ public class BadgeDrawableBuilder {
     private int mColor = 0;
     private int mColorPressed = 0;
     private int mCorners = -1;
+    private int mStroke = -1;
+    private int mStrokeColor = 0;
 
     public BadgeDrawableBuilder() {
     }
 
-    public BadgeDrawableBuilder color(int color) {
+    public BadgeDrawableBuilder color(@ColorInt int color) {
         this.mColor = color;
         return this;
     }
 
-    public BadgeDrawableBuilder colorPressed(int colorPressed) {
+    public BadgeDrawableBuilder colorPressed(@ColorInt int colorPressed) {
         this.mColorPressed = colorPressed;
         return this;
     }
 
     public BadgeDrawableBuilder corners(int corners) {
         this.mCorners = corners;
+        return this;
+    }
+
+    public BadgeDrawableBuilder stroke(int stroke) {
+        this.mStroke = stroke;
+        return this;
+    }
+
+    public BadgeDrawableBuilder strokeColor(@ColorInt int strokeColor) {
+        this.mStrokeColor = strokeColor;
         return this;
     }
 
@@ -41,6 +54,11 @@ public class BadgeDrawableBuilder {
 
         normal.setColor(mColor);
         selected.setColor(mColorPressed);
+
+        if (mStroke > -1) {
+            normal.setStroke(mStroke, mStrokeColor);
+            selected.setStroke(mStroke, mStrokeColor);
+        }
 
         if (mCorners > -1) {
             normal.setCornerRadius(mCorners);

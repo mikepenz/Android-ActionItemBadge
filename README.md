@@ -14,11 +14,11 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile 'com.mikepenz:actionitembadge:3.2.5@aar'
+	compile 'com.mikepenz:actionitembadge:3.2.6@aar'
 	
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
-    compile 'com.mikepenz:iconics-core:2.5.11@aar'
+    compile 'com.mikepenz:iconics-core:2.6.6@aar'
 }
 ```
 
@@ -73,7 +73,7 @@ call invalidateOptionsMenu() afterwards.
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.item_samplebadge) {
-            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.sample_3, Toast.LENGTH_SHORT).show();
             badgeCount--;
             ActionItemBadge.update(item, badgeCount);
             return true;
