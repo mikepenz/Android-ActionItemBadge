@@ -42,11 +42,11 @@
 <p>The ActionItemBadge Library is pushed to [Maven Central], so you just need to add the following dependency to your <code>build.gradle</code>.</p>
 
 <div class="highlight highlight-source-js"><pre>dependencies {
-    compile <span class="pl-s"><span class="pl-pds">'</span>com.mikepenz:actionitembadge:3.2.5@aar<span class="pl-pds">'</span></span>
+    compile <span class="pl-s"><span class="pl-pds">'</span>com.mikepenz:actionitembadge:3.2.6@aar<span class="pl-pds">'</span></span>
 
     <span class="pl-c">//SUB-DEPENDENCIES</span>
     <span class="pl-c">//Android-Iconics - used to provide an easy API for icons </span>
-    compile <span class="pl-s"><span class="pl-pds">'</span>com.mikepenz:iconics-core:2.5.11@aar<span class="pl-pds">'</span></span>
+    compile <span class="pl-s"><span class="pl-pds">'</span>com.mikepenz:iconics-core:2.6.6@aar<span class="pl-pds">'</span></span>
 }</pre></div>
 
 <h3>
@@ -113,7 +113,7 @@ call invalidateOptionsMenu() afterwards.</p>
     <span class="pl-k">public</span> <span class="pl-k">boolean</span> onOptionsItemSelected(<span class="pl-smi">MenuItem</span> item) {
         <span class="pl-k">int</span> id <span class="pl-k">=</span> item<span class="pl-k">.</span>getItemId();
         <span class="pl-k">if</span> (id <span class="pl-k">==</span> <span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>item_samplebadge) {
-            <span class="pl-smi">Toast</span><span class="pl-k">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_3, <span class="pl-smi">Toast</span><span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();<span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();
+            <span class="pl-smi">Toast</span><span class="pl-k">.</span>makeText(<span class="pl-v">this</span>, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>sample_3, <span class="pl-smi">Toast</span><span class="pl-c1"><span class="pl-k">.</span>LENGTH_SHORT</span>)<span class="pl-k">.</span>show();
             badgeCount<span class="pl-k">--</span>;
             <span class="pl-smi">ActionItemBadge</span><span class="pl-k">.</span>update(item, badgeCount);
             <span class="pl-k">return</span> <span class="pl-c1">true</span>;
