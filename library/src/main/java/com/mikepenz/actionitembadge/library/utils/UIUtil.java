@@ -3,7 +3,6 @@ package com.mikepenz.actionitembadge.library.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
@@ -27,27 +26,6 @@ public class UIUtil {
         } else {
             v.setBackground(d);
         }
-    }
-
-
-    /**
-     * helper method to get the drawable by its resource. specific to the correct android version
-     *
-     * @param c
-     * @param drawableRes
-     * @return
-     */
-    public static Drawable getCompatDrawable(Context c, int drawableRes) {
-        Drawable d = null;
-        try {
-            if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                d = c.getResources().getDrawable(drawableRes);
-            } else {
-                d = c.getResources().getDrawable(drawableRes, c.getTheme());
-            }
-        } catch (Exception ex) {
-        }
-        return d;
     }
 
 
