@@ -78,7 +78,7 @@ public class ActionItemBadgeAdder {
     }
 
     public Menu add(BadgeStyle style, int badgeCount) {
-        return add((Drawable) null, style, badgeCount);
+        return add((Drawable) null, style, badgeCount, null);
     }
 
     public Menu add(IIcon icon, int badgeCount) {
@@ -102,14 +102,14 @@ public class ActionItemBadgeAdder {
     }
 
     public Menu add(IIcon icon, int iconColor, BadgeStyle style, int badgeCount) {
-        return add(new IconicsDrawable(activity, icon).color(iconColor).actionBar(), style, badgeCount);
+        return add(new IconicsDrawable(activity, icon).color(iconColor).actionBar(), style, badgeCount, null);
     }
 
     public Menu add(Drawable icon, ActionItemBadge.BadgeStyles style, int badgeCount) {
-        return add(icon, style.getStyle(), badgeCount);
+        return add(icon, style.getStyle(), badgeCount, null);
     }
 
-    public Menu add(Drawable icon, BadgeStyle style, int badgeCount) {
+    public Menu add(Drawable icon, BadgeStyle style, int badgeCount, ActionItemBadge.ActionItemBadgeListener listener) {
         MenuItem item;
         if (groupId != null && itemId != null && order != null) {
             item = menu.add(groupId, itemId, order, title);
@@ -122,7 +122,7 @@ public class ActionItemBadgeAdder {
         }
 
         item.setActionView(style.getLayout());
-        ActionItemBadge.update(activity, item, icon, style, badgeCount);
+        ActionItemBadge.update(activity, item, icon, style, String.valueOf(badgeCount), listener);
         return menu;
     }
 }
