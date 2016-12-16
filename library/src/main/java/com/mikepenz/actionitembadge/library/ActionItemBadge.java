@@ -134,11 +134,11 @@ public class ActionItemBadge {
     }
 
 
-    public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
+    public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount, ActionItemBadgeListener listener) {
         if (badgeCount == Integer.MIN_VALUE) {
-            update(activity, menu, icon, style, null);
+            update(activity, menu, icon, style, null, listener);
         } else {
-            update(activity, menu, icon, style, String.valueOf(badgeCount));
+            update(activity, menu, icon, style, String.valueOf(badgeCount), listener);
         }
     }
 
