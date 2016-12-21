@@ -65,7 +65,7 @@ Override the onCreateOptionsMenu method
 
 	    //If you want to add your ActionItem programmatically you can do this too. You do the following:
         new ActionItemBadgeAdder().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(bigStyle, 1);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 ```
 
