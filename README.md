@@ -14,11 +14,14 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile 'com.mikepenz:actionitembadge:3.3.0@aar'
-	
+	compile 'com.mikepenz:actionitembadge:3.3.1@aar'
+
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
-    compile 'com.mikepenz:iconics-core:2.8.0@aar'
+	compile 'com.mikepenz:iconics-core:2.8.1@aar'
+
+	//appcompat
+	compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
 }
 ```
 
@@ -62,7 +65,7 @@ Override the onCreateOptionsMenu method
 
 	    //If you want to add your ActionItem programmatically you can do this too. You do the following:
         new ActionItemBadgeAdder().act(this).menu(menu).title(R.string.sample_2).itemDetails(0, SAMPLE2_ID, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(bigStyle, 1);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 ```
 
