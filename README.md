@@ -1,15 +1,15 @@
-#Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.mikepenz/actionitembadge/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.mikepenz/actionitembadge) [![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/755)
+# Android-ActionItemBadge [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.mikepenz/actionitembadge/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.mikepenz/actionitembadge) [![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android--ActionItemBadge-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/755)
 
 [![Join the chat at https://gitter.im/mikepenz/Android-ActionItemBadge](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mikepenz/Android-ActionItemBadge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ActionItemBadge is a library which offers a simple and easy to use method to add a badge to your action item!
 
-##Screenshots
+## Screenshots
 ![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot1_small.png)
 ![Image](https://raw.githubusercontent.com/mikepenz/Android-ActionItemBadge/develop/DEV/screenshot/screenshot2_small.png)
 
-##Include in your project
-###Using Maven
+## Include in your project
+### Using Maven
 The ActionItemBadge Library is pushed to [Maven Central], so you just need to add the following dependency to your `build.gradle`.
 
 ```javascript
@@ -25,16 +25,16 @@ dependencies {
 }
 ```
 
-###Additional dependency for the icon font
+### Additional dependency for the icon font
 If you are going to use the icon font you will have to add additional dependency for the font. 
 You can find all available addons here: https://github.com/mikepenz/Android-Iconics#2-choose-your-desired-fonts
 
-##UPGRADE NOTES
-####< 3.0.0
+## UPGRADE NOTES
+#### < 3.0.0
 - If you come from a version prior 3.0.0 you will have to rename some classes, and the default styles also found a new place. Just check out the updated sample app for all the changes.
 
-##Usage
-###menu.xml
+## Usage
+### menu.xml
 Create your menu.xml as you would do normally and add the app:actionLayout param.
 It is also a good idea to set showAsAction="always" (The badge can only be shown in the actionbar)
 ```xml
@@ -48,7 +48,7 @@ It is also a good idea to set showAsAction="always" (The badge can only be shown
         android:title="@string/sample_1"/>
 </menu>
 ```
-###Activity
+### Activity
 Override the onCreateOptionsMenu method
 ```java
  @Override
@@ -87,17 +87,17 @@ call invalidateOptionsMenu() afterwards.
     }
 ```
 
-#Dependencies
+# Dependencies
 * Android-Iconics - https://github.com/mikepenz/Android-Iconics
 
 
-#Developed By
+# Developed By
 
 * Mike Penz 
  * [mikepenz.com](http://mikepenz.com) - <mikepenz@gmail.com>
  * [paypal.me/mikepenz](http://paypal.me/mikepenz)
 
-#License
+# License
 
     Copyright 2016 Mike Penz
 
