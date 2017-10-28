@@ -14,14 +14,14 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	compile 'com.mikepenz:actionitembadge:3.3.1@aar'
+	implementation 'com.mikepenz:actionitembadge:3.3.1@aar'
 
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
-	compile 'com.mikepenz:iconics-core:2.8.1@aar'
+	implementation 'com.mikepenz:iconics-core:{latestVersion}@aar'
 
 	//appcompat
-	compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+	implementation "com.android.support:appcompat-v7:${supportLibVersion}"
 }
 ```
 
@@ -99,7 +99,7 @@ call invalidateOptionsMenu() afterwards.
 
 # License
 
-    Copyright 2016 Mike Penz
+    Copyright 2017 Mike Penz
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
