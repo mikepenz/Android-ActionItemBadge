@@ -20,7 +20,7 @@ android {
 
         multiDexEnabled true
 
-        setProperty("archivesBaseName", "FastAdapter-v$versionName-c$versionCode")
+        setProperty("archivesBaseName", "ActionItemBadge-v$versionName-c$versionCode")
     }
     buildTypes {
         debug {

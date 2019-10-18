@@ -31,6 +31,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 }
 
-if (project.hasProperty('pushall') || project.hasProperty('library_extensions_paged_only')) {
-    apply from: '../gradle-release.gradle'
-}
+apply from: '../gradle-release.gradle'
