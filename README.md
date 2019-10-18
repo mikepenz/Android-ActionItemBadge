@@ -14,14 +14,11 @@ The ActionItemBadge Library is pushed to [Maven Central], so you just need to ad
 
 ```javascript
 dependencies {
-	implementation 'com.mikepenz:actionitembadge:3.3.2@aar'
+	implementation 'com.mikepenz:actionitembadge:4.0.0'
 
 	//SUB-DEPENDENCIES
 	//Android-Iconics - used to provide an easy API for icons 
 	implementation 'com.mikepenz:iconics-core:{latestVersion}@aar'
-
-	//appcompat
-	implementation "com.android.support:appcompat-v7:${supportLibVersion}"
 }
 ```
 
@@ -30,6 +27,9 @@ If you are going to use the icon font you will have to add additional dependency
 You can find all available addons here: https://github.com/mikepenz/Android-Iconics#2-choose-your-desired-fonts
 
 ## UPGRADE NOTES
+#### < 4.0.0
+- If you come from a version prior 4.0.0 you will have to upgrade to AndroidX and Iconics v4
+
 #### < 3.0.0
 - If you come from a version prior 3.0.0 you will have to rename some classes, and the default styles also found a new place. Just check out the updated sample app for all the changes.
 
@@ -99,7 +99,7 @@ call invalidateOptionsMenu() afterwards.
 
 # License
 
-    Copyright 2017 Mike Penz
+    Copyright 2019 Mike Penz
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
