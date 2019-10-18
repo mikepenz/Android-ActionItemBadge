@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.mikepenz.actionitembadge.library.utils.BadgeDrawableBuilder;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
 import com.mikepenz.actionitembadge.library.utils.UIUtil;
+import com.mikepenz.iconics.IconicsColor;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.iconics.typeface.IIcon;
 
@@ -38,7 +39,8 @@ public class ActionItemBadge {
         BLUE_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_action_item_badge_large, Color.parseColor("#33B5E5"), Color.parseColor("#0099CC"), Color.WHITE)),
         GREEN_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_action_item_badge_large, Color.parseColor("#99CC00"), Color.parseColor("#669900"), Color.WHITE)),
         PURPLE_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_action_item_badge_large, Color.parseColor("#AA66CC"), Color.parseColor("#9933CC"), Color.WHITE)),
-        YELLOW_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_action_item_badge_large, Color.parseColor("#FFBB33"), Color.parseColor("#FF8800"), Color.WHITE)),;
+        YELLOW_LARGE(new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_action_item_badge_large, Color.parseColor("#FFBB33"), Color.parseColor("#FF8800"), Color.WHITE)),
+        ;
 
         private BadgeStyle style;
 
@@ -53,14 +55,14 @@ public class ActionItemBadge {
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int badgeCount) {
         if (badgeCount == Integer.MIN_VALUE) {
-            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), null);
+            update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(Color.WHITE)).actionBar(), BadgeStyles.DARK_GREY.getStyle(), null);
         } else {
-            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), String.valueOf(badgeCount));
+            update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(Color.WHITE)).actionBar(), BadgeStyles.DARK_GREY.getStyle(), String.valueOf(badgeCount));
         }
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, String badgeCount) {
-        update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), BadgeStyles.DARK_GREY.getStyle(), badgeCount);
+        update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(Color.WHITE)).actionBar(), BadgeStyles.DARK_GREY.getStyle(), badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyles style, int badgeCount) {
@@ -69,14 +71,14 @@ public class ActionItemBadge {
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyle style, int badgeCount) {
         if (badgeCount == Integer.MIN_VALUE) {
-            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, null);
+            update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(Color.WHITE)).actionBar(), style, null);
         } else {
-            update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, String.valueOf(badgeCount));
+            update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(Color.WHITE)).actionBar(), style, String.valueOf(badgeCount));
         }
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, BadgeStyle style, String badgeCount) {
-        update(act, menu, new IconicsDrawable(act, icon).color(Color.WHITE).actionBar(), style, badgeCount);
+        update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(Color.WHITE)).actionBar(), style, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, int badgeCount) {
@@ -89,14 +91,14 @@ public class ActionItemBadge {
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, BadgeStyle style, int badgeCount) {
         if (badgeCount == Integer.MIN_VALUE) {
-            update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, null);
+            update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(iconColor)).actionBar(), style, null);
         } else {
-            update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, String.valueOf(badgeCount));
+            update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(iconColor)).actionBar(), style, String.valueOf(badgeCount));
         }
     }
 
     public static void update(final Activity act, final MenuItem menu, IIcon icon, int iconColor, BadgeStyle style, String badgeCount) {
-        update(act, menu, new IconicsDrawable(act, icon).color(iconColor).actionBar(), style, badgeCount);
+        update(act, menu, new IconicsDrawable(act, icon).color(IconicsColor.colorInt(iconColor)).actionBar(), style, badgeCount);
     }
 
     public static void update(final Activity act, final MenuItem menu, Drawable icon, BadgeStyles style, int badgeCount) {
@@ -134,7 +136,7 @@ public class ActionItemBadge {
     }
 
     public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount) {
-        update (activity, menu, icon, style, badgeCount, null);
+        update(activity, menu, icon, style, badgeCount, null);
     }
 
     public static void update(final Activity activity, final MenuItem menu, Drawable icon, BadgeStyle style, int badgeCount, ActionItemBadgeListener listener) {

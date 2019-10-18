@@ -2,21 +2,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:clickable="true"
+    android:descendantFocusability="beforeDescendants"
     android:focusable="true"
-    android:descendantFocusability="beforeDescendants">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <Button
         android:id="@+id/menu_badge"
-        android:duplicateParentState="true"
         android:layout_width="wrap_content"
-        android:clickable="false"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:duplicateParentState="true"
         android:gravity="center"
-        android:minHeight="32dp"
         android:minWidth="32dp"
+        android:minHeight="32dp"
         android:padding="2dp"
         android:singleLine="true"
         android:textColor="@android:color/white"

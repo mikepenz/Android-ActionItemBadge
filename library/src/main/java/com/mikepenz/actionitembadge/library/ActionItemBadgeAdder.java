@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
+import com.mikepenz.iconics.IconicsColor;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.iconics.typeface.IIcon;
 
@@ -86,7 +87,7 @@ public class ActionItemBadgeAdder {
     }
 
     public MenuItem add(IIcon icon, int iconColor, int badgeCount) {
-        return add(new IconicsDrawable(activity, icon).color(iconColor).actionBar(), ActionItemBadge.BadgeStyles.GREY, badgeCount);
+        return add(new IconicsDrawable(activity, icon).color(IconicsColor.colorInt(iconColor)).actionBar(), ActionItemBadge.BadgeStyles.GREY, badgeCount);
     }
 
     public MenuItem add(Drawable icon, int badgeCount) {
@@ -102,7 +103,7 @@ public class ActionItemBadgeAdder {
     }
 
     public MenuItem add(IIcon icon, int iconColor, BadgeStyle style, int badgeCount) {
-        return add(new IconicsDrawable(activity, icon).color(iconColor).actionBar(), style, badgeCount, null);
+        return add(new IconicsDrawable(activity, icon).color(IconicsColor.colorInt(iconColor)).actionBar(), style, badgeCount, null);
     }
 
     public MenuItem add(Drawable icon, ActionItemBadge.BadgeStyles style, int badgeCount) {

@@ -1,8 +1,9 @@
 package com.mikepenz.actionitembadge.library.utils;
 
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.LayoutRes;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.LayoutRes;
 
 /**
  * Created by mikepenz on 02.07.15.

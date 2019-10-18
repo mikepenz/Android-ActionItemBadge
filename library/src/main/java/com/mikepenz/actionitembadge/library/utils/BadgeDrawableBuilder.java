@@ -3,9 +3,10 @@ package com.mikepenz.actionitembadge.library.utils;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.ColorInt;
-import android.support.v4.content.ContextCompat;
 import android.util.StateSet;
+
+import androidx.annotation.ColorInt;
+import androidx.core.content.ContextCompat;
 
 import com.mikepenz.actionitembadge.library.R;
 
