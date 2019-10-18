@@ -1,15 +1,15 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 332
-        versionName "3.3.2"
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode release.versionCode
+        versionName release.versionName
     }
     buildTypes {
         release {
@@ -18,17 +18,19 @@ android {
         }
     }
 }
-apply from: 'gradle-mvn-push.gradle'
-apply from: 'gradle-jcenter-push.gradle'
+
 
 dependencies {
     // used to provide out of the box icon font support. simplifies development,
     // and provides scalable icons. the core is very very light
     // https://github.com/mikepenz/Android-Iconics
-    implementation 'com.mikepenz:iconics-core:2.9.3@aar'
+    implementation "com.mikepenz:iconics-core:${versions.iconics}"
 
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation "androidx.appcompat:appcompat:${versions.appcompat}"
 
-    // used to provide useful AS warnings
-    implementation "com.android.support:support-annotations:${rootProject.ext.supportLibVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+}
+
+if (project.hasProperty('pushall') || project.hasProperty('library_extensions_paged_only')) {
+    apply from: '../gradle-release.gradle'
 }

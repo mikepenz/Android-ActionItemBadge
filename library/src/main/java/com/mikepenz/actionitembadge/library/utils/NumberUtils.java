@@ -10,6 +10,7 @@ import java.util.TreeMap;
 public class NumberUtils {
 
     private static final NavigableMap<Long, String> suffixes = new TreeMap<>();
+
     static {
         suffixes.put(1_000L, "k");
         suffixes.put(1_000_000L, "M");
